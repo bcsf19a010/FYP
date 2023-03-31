@@ -6,8 +6,9 @@ import Navbar from "./Components/Navbar";
 import About from "./Components/about";
 //import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/Signup";
-import Home from "./Components/Home/Home";
+import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
+import Footer from "./Components/footer";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -27,11 +28,12 @@ function App() {
           /> */}
           <Route
             path="/about"
-            element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
+            element={[<Navbar />, <About />]}
+            // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
-          <Route path="/" element={[<Home />]} />
+          <Route path="/" element={[<Navbar />, <Login />, <Footer />]} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/humanClone" element={<Clone />} />
+          <Route path="/humanClone" element={[<Navbar />, <Clone />]} />
         </Routes>
       </BrowserRouter>
     </div>

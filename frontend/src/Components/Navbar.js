@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "./Login/loginSlice";
+import imagae from "../Resources/images/logo.png";
 
 export default function Navbar(props) {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -10,10 +11,13 @@ export default function Navbar(props) {
     dispatch(logoutUser());
   };
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+    <nav
+      className="navbar navbar-expand-lg bg-light"
+      style={{ padding: "0px", width: "100%" }}
+    >
+      <div className="container-fluid" style={{ backgroundColor: "black" }}>
         <Link className="navbar-brand text-dark" to="/">
-          Navbar
+          <img src={imagae} alt="Logo" />
         </Link>
         <button
           className="navbar-toggler"
@@ -30,7 +34,8 @@ export default function Navbar(props) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
-                className="nav-link  text-dark"
+                style={{ color: "white", fontWeight: "bold" }}
+                className="nav-link"
                 aria-current="page"
                 to="/about"
               >
@@ -39,7 +44,7 @@ export default function Navbar(props) {
             </li>
           </ul>
           <i className="mx-3">
-            <strong>Hi {props.username}</strong>
+            <strong>{props.username}</strong>
           </i>
           {user && (
             <form onSubmit={logout}>
@@ -48,7 +53,7 @@ export default function Navbar(props) {
               </button>
             </form>
           )}
-          {!user && (
+          {/* {!user && (
             <form>
               <button
                 className="btn btn-outline-danger"
@@ -58,7 +63,7 @@ export default function Navbar(props) {
                 Login
               </button>
             </form>
-          )}
+          )} */}
         </div>
       </div>
     </nav>

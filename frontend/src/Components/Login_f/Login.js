@@ -13,6 +13,7 @@ import {
   MDBIcon,
   MDBInput,
 } from "mdb-react-ui-kit";
+import Navbar from "../Navbar";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -62,7 +63,7 @@ export default function Home() {
   };
 
   return (
-    <MDBContainer className="container my-5">
+    <MDBContainer className="container my-5" style={{ maxWidth: "1000px" }}>
       <MDBCard>
         <h1 style={{ textAlign: "center", color: "red" }}>{error}</h1>
         <MDBRow className="g-0">
@@ -81,7 +82,7 @@ export default function Home() {
                   icon="cubes fa-3x me-3"
                   style={{ color: "#ff6219" }}
                 />
-                <span className="h1 fw-bold mb-0">Logo</span>
+                <span className="h1 fw-bold mb-0">Login</span>
               </div>
 
               <h5
@@ -136,14 +137,14 @@ export default function Home() {
                 </a>
               </p>
 
-              <div className="d-flex flex-row justify-content-start">
+              {/* <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">
                   Terms of use.
                 </a>
                 <a href="#!" className="small text-muted">
                   Privacy policy
                 </a>
-              </div>
+              </div> */}
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
