@@ -11,13 +11,37 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
-import './app.css'
+import "./app.css";
+import { useEffect } from "react";
 
 function App() {
-  const [bgclr, setbgclr] = useState("white");
+  const [bgclr, setbgclr] = useState(true);
+  const [backgroundImage, setBackgroundImage] = useState("");
+
+  useEffect(() => {
+    // Set the initial background image based on the initial value of the bgclr prop
+    setBackgroundImage(
+      bgclr
+        ? "linear-gradient(#F5F5F5, #F5F5F5)"
+        : "linear-gradient(#b92b27, #1565c0)"
+    );
+  }, [bgclr]);
+
   //const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="App container-fluid" style={{ backgroundColor: bgclr }}>
+    <div
+      className="App container-fluid"
+      style={{
+        backgroundImage,
+      }}
+      // style={{
+      //   backgroundImage:
+      //     bgclr === true
+      //       ? "linear-gradient(#F5F5F5, #F5F5F5) !important"
+      //       : "linear-gradient(#b92b27, #1565c0) !important",
+      // }}
+    >
+      {console.log("Rendering app", bgclr)}
       <BrowserRouter>
         <Routes>
           {/* <Route
@@ -43,7 +67,7 @@ function App() {
           />
           <Route
             path="/login"
-            element={[<Navbar />, <Login setclr={setbgclr} />, <Footer />]}
+            element={[<Navbar />, <Login setbgclr={setbgclr} />, <Footer />]}
           />
         </Routes>
       </BrowserRouter>
