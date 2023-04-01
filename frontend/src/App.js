@@ -13,6 +13,7 @@ import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
 import "./app.css";
 import { useEffect } from "react";
+import VideoPlayer from "./Components/videopage";
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
@@ -48,6 +49,10 @@ function App() {
             // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
           <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />
+          <Route
+            path="/video"
+            element={<VideoPlayer videoPath="videos/PushUps.mp4" />}
+          />
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/humanClone"

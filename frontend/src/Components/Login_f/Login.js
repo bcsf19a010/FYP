@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import loginImage from "../../Resources/images/login_image.jpg";
 import "./Login.css";
 
 import {
@@ -47,7 +46,6 @@ export default function Login(props) {
           "Content-type": "application/json",
         },
       });
-      console.log("response\n\n", response);
 
       const data = await response.json();
       if (response.ok) {
@@ -82,7 +80,7 @@ export default function Login(props) {
             <MDBCol md="6">
               <MDBCardImage
                 style={{ marginTop: "-9px" }}
-                src={loginImage}
+                src={"images/login_image.jpg"}
                 alt="login form"
                 className="rounded-start w-100"
               />
