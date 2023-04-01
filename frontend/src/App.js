@@ -29,19 +29,7 @@ function App() {
 
   //const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div
-      className="App container-fluid"
-      style={{
-        backgroundImage,
-      }}
-      // style={{
-      //   backgroundImage:
-      //     bgclr === true
-      //       ? "linear-gradient(#F5F5F5, #F5F5F5) !important"
-      //       : "linear-gradient(#b92b27, #1565c0) !important",
-      // }}
-    >
-      {console.log("Rendering app", bgclr)}
+    <div className="App container-fluid" style={{ backgroundImage }}>
       <BrowserRouter>
         <Routes>
           {/* <Route
