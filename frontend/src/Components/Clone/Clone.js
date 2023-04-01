@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Clone.css";
-export default function clone() {
+export default function Clone() {
   const handleClick = (event) => {
     const pathId = event.target.id;
     alert(pathId);
@@ -15,11 +15,16 @@ export default function clone() {
       }}
     >
       <svg
-        style={{ display: "block", maxHeight: "600px", maxWidth: "300px" }}
+        style={{
+          display: "block",
+          maxHeight: "600px",
+          maxWidth: "300px",
+          margin: "30px",
+        }}
         height="100%"
         width="50%"
         stroke="black"
-        stroke-width={2}
+        strokeWidth={2}
         viewBox="0 0 673 1200"
         // // fill="none"
         fill="grey"
@@ -168,7 +173,7 @@ export default function clone() {
         height="100%"
         width="50%"
         stroke="black"
-        stroke-width={2}
+        strokeWidth={2}
         viewBox="0 0 652 1200"
         fill="grey"
         fillOpacity={0.75}

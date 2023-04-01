@@ -1,0 +1,29 @@
+.Button {
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(78, 43, 2);
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    width: 200px;
+  }
+  
+  .Button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+
+  }
+
+  .lgn{
+    margin-right: 10px;
+  }
+
+  .sg{
+    margin-left: 10px;
+  }
+  

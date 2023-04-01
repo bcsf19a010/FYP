@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import loginImage from "../../Resources/images/login_image.jpg";
 
@@ -13,12 +13,20 @@ import {
   MDBIcon,
   MDBInput,
 } from "mdb-react-ui-kit";
-import Navbar from "../Navbar";
 
-export default function Home() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    // This function will be called when the component mounts
+    props.setclr("grey");
+    return () => {
+      // This function will be called when the component unmounts
+      props.setclr("white");
+    };
+  }, []);
 
   const navigate = useNavigate();
 
@@ -63,12 +71,13 @@ export default function Home() {
   };
 
   return (
-    <MDBContainer className="container my-5" style={{ maxWidth: "1000px" }}>
+    <MDBContainer className="container my-5" style={{ maxWidth: "900px" }}>
       <MDBCard>
         <h1 style={{ textAlign: "center", color: "red" }}>{error}</h1>
         <MDBRow className="g-0">
           <MDBCol md="6">
             <MDBCardImage
+              style={{ marginTop: "-9px" }}
               src={loginImage}
               alt="login form"
               className="rounded-start w-100"

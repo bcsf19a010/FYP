@@ -4,7 +4,9 @@ import image from "../Resources/images/logo.png";
 
 export default function Footer() {
   return (
-    <div style={{ backgroundColor: "black", color: "white" }}>
+    <div
+      style={{ backgroundColor: "black", color: "white", paddingTop: "40px" }}
+    >
       <section className="footer-section">
         <div className="container">
           <div className="row">
