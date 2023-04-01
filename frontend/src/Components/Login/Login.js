@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Workouts from "../Workout/Workouts";
 import { setInitials } from "./loginSlice";
+import './Login.css';
 
 export default function Login() {
   const dispatch = useDispatch();

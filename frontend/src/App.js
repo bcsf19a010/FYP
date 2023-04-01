@@ -11,6 +11,7 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
+import './app.css'
 
 function App() {
   const [bgclr, setbgclr] = useState("white");

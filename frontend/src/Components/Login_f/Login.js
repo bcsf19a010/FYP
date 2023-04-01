@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import loginImage from "../../Resources/images/login_image.jpg";
+import './Login.css'
 
 import {
   MDBBtn,
@@ -71,6 +72,7 @@ export default function Login(props) {
   };
 
   return (
+    <div className="login-page">
     <MDBContainer className="container my-5" style={{ maxWidth: "900px" }}>
       <MDBCard>
         <h1 style={{ textAlign: "center", color: "red" }}>{error}</h1>
@@ -159,6 +161,7 @@ export default function Login(props) {
         </MDBRow>
       </MDBCard>
     </MDBContainer>
+    </div>
   );
 }
 

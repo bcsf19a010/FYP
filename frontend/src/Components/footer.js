@@ -1,11 +1,12 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 import image from "../Resources/images/logo.png";
+import './footer.css';
 
 export default function Footer() {
   return (
     <div
-      style={{ backgroundColor: "black", color: "white", paddingTop: "40px" }}
+      style={{ backgroundColor: "black", color: "white", paddingTop: "40px"}}
     >
       <section className="footer-section">
         <div className="container">
@@ -13,7 +14,7 @@ export default function Footer() {
             <div className="col-lg-4">
               <div className="fs-about">
                 <div className="fa-logo">
-                  <a href="#">
+                  <a className = "footer-link" href="#">
                     <img src={image} alt="" />
                   </a>
                 </div>
@@ -23,19 +24,19 @@ export default function Footer() {
                   endisse ultrices gravida lorem.
                 </p>
                 <div className="fa-social">
-                  <a href="https://www.facebook.com">
+                  <a className = "footer-link" href="https://www.facebook.com">
                     <i className="fa fa-facebook" />
                   </a>
-                  <a href="#">
+                  <a className = "footer-link" href="#">
                     <i className="fa fa-twitter" />
                   </a>
-                  <a href="#">
+                  <a className = "footer-link" href="#">
                     <i className="fa fa-youtube-play" />
                   </a>
-                  <a href="#">
+                  <a className = "footer-link" href="#">
                     <i className="fa fa-instagram" />
                   </a>
-                  <a href="#">
+                  <a className = "footer-link" href="#">
                     <i className="fa fa-envelope-o" />
                   </a>
                 </div>
@@ -46,16 +47,16 @@ export default function Footer() {
                 <h4>Useful links</h4>
                 <ul>
                   <li>
-                    <a href="#">About</a>
+                    <a className = "footer-link" href="#">About</a>
                   </li>
                   <li>
-                    <a href="#">Blog</a>
+                    <a className = "footer-link" href="#">Blog</a>
                   </li>
                   <li>
-                    <a href="#">Classes</a>
+                    <a className = "footer-link" href="#">Classes</a>
                   </li>
                   <li>
-                    <a href="#">Contact</a>
+                    <a className = "footer-link" href="#">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -65,16 +66,16 @@ export default function Footer() {
                 <h4>Support</h4>
                 <ul>
                   <li>
-                    <a href="#">Login</a>
+                    <a className = "footer-link" href="#">Login</a>
                   </li>
                   <li>
-                    <a href="#">My account</a>
+                    <a className = "footer-link" href="#">My account</a>
                   </li>
                   <li>
-                    <a href="#">Subscribe</a>
+                    <a className = "footer-link" href="#">Subscribe</a>
                   </li>
                   <li>
-                    <a href="#">Contact</a>
+                    <a className = "footer-link" href="#">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -84,7 +85,7 @@ export default function Footer() {
                 <h4>Tips &amp; Guides</h4>
                 <div className="fw-recent">
                   <h6>
-                    <a href="#">
+                    <a className = "footer-link" href="#">
                       Physical fitness may help prevent depression, anxiety
                     </a>
                   </h6>
@@ -95,7 +96,7 @@ export default function Footer() {
                 </div>
                 <div className="fw-recent">
                   <h6>
-                    <a href="#">
+                    <a className = "footer-link" href="#">
                       Fitness: The best exercise to lose belly fat and tone
                       up...
                     </a>
@@ -115,7 +116,7 @@ export default function Footer() {
                   {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
                   Copyright © All rights reserved | This template is made with{" "}
                   <i className="fa fa-heart" aria-hidden="true" /> by{" "}
-                  <a href="https://colorlib.com" target="_blank">
+                  <a className = "footer-link" href="https://colorlib.com" target="_blank">
                     Colorlib
                   </a>
                   {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
