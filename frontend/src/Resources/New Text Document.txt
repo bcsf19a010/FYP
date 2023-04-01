@@ -1,0 +1,11 @@
+.home
+{
+  background-image: url('E:react/gym_management_system/FYP/frontend/src/Resources/images/hero-1.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  display: flex;
+  align-items: right;
+  justify-content: center;
+  height: 100vh;
+}

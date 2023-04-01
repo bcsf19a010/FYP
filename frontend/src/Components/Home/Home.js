@@ -1,6 +1,6 @@
 import React from "react";
 import bci from "../../Resources/images/hero-1.jpg";
-import "./Home.css";
+import './Home.css';
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -17,7 +17,11 @@ export default function Home() {
         
       }}
     >
-      <div>
+      <div className="text">
+        <h3>Shape Your Body</h3>
+        <h1>Be Strong <br></br> Training Hard</h1>
+      </div>
+      <div className="buttons">
         <Link to="/login" className="Button lgn">
           Login
         </Link>
