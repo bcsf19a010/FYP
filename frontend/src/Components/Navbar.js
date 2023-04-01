@@ -15,7 +15,10 @@ export default function Navbar(props) {
       className="navbar navbar-expand-lg bg-light"
       style={{ padding: "0px", width: "100%" }}
     >
-      <div className="container-fluid" style={{ backgroundColor: "black" }}>
+      <div
+        className="container-fluid"
+        style={{ backgroundColor: "black", paddingTop: "30px" }}
+      >
         <Link className="navbar-brand text-dark" to="/">
           <img src={imagae} alt="Logo" />
         </Link>
@@ -34,7 +37,7 @@ export default function Navbar(props) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
-                style={{ color: "white", fontWeight: "bold" }}
+                style={{ color: "white", fontWeight: "bold", fontSize: "25px" }}
                 className="nav-link"
                 aria-current="page"
                 to="/about"
