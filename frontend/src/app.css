@@ -1,10 +1,5 @@
-html
-,body
-{
-    width: 100%;
-}
 .App
 {
+    width: 100%;
     background-image: linear-gradient( #b92b27, #1565c0);
-    width :100%;
 }

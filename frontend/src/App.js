@@ -17,7 +17,7 @@ function App() {
   const [bgclr, setbgclr] = useState("white");
   //const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="App container-fluid" style={{ backgroundColor: bgclr }}>
+    <div className="App" style={{ backgroundColor: bgclr }}>
       <BrowserRouter>
         <Routes>
           {/* <Route

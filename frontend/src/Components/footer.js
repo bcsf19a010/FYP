@@ -5,9 +5,7 @@ import './footer.css';
 
 export default function Footer() {
   return (
-    <div
-      style={{ backgroundColor: "black", color: "white", paddingTop: "40px"}}
-    >
+    <div className="footer container-fluid" >
       <section className="footer-section">
         <div className="container">
           <div className="row">
