@@ -48,7 +48,7 @@ function App() {
             element={[<Navbar />, <About />]}
             // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
-          <Route path="/" element={[<Navbar />, <Clone />, <Footer />]} />
+          <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />
           <Route
             path="/video"
             element={<VideoPlayer videoPath="videos/PushUps.mp4" />}
