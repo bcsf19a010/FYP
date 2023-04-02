@@ -8,7 +8,9 @@ export default function Home() {
       <div className="container">
         <div className="text">
           <span>Shape Your Body</span>
-          <h1>Be <font color="orangered">Strong</font> <br></br> Training Hard</h1>
+          <h1>
+            Be <font color="orangered">Strong</font> <br></br> Training Hard
+          </h1>
         </div>
         <div className="buttons">
           <Link to="/login" className="Button lgn">
