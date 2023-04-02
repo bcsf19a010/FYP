@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import {
   MDBBtn,

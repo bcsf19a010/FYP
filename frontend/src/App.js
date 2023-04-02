@@ -4,7 +4,7 @@ import { useState } from "react";
 
 //import Workouts from "./Components/Workout/Workouts";
 import Navbar from "./Components/Navbar";
-import About from "./Components/about";
+import About from "./Components/About/about";
 //import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/Signup";
 import Login from "./Components/Login_f/Login";
@@ -45,7 +45,7 @@ function App() {
           /> */}
           <Route
             path="/about"
-            element={[<Navbar />, <About />]}
+            element={[<Navbar />, <About />, <Footer />]}
             // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
           <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />

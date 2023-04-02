@@ -1,0 +1,39 @@
+.hm
+{
+  background-image: url("../../../public/images/aboutUs.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  height:120vh;
+  width:100%;
+}
+.cntnr
+{
+  padding-top: 150px;
+  margin-left: 80px;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  flex-wrap: wrap;
+}
+.txt
+{
+  color: white;
+  align-self:last baseline;
+  justify-content:center;
+  padding: 0px;
+  height:45vh;
+  width:80vh;
+  margin:0px;
+}
+.set-bg
+{
+  background-image: url("../../../public/images/aboutUs2.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  height:110vh;
+  width:100%;
+}
