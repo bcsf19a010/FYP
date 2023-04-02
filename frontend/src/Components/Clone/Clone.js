@@ -7,13 +7,7 @@ export default function Clone() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="clone">
       <svg
         style={{
           display: "block",

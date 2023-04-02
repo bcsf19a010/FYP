@@ -1,5 +1,6 @@
 import React from "react";
-import "@fortawesome/fontawesome-free/css/all.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faInstagram, faWhatsapp, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './footer.css';
 
 export default function Footer() {
@@ -21,20 +22,20 @@ export default function Footer() {
                   endisse ultrices gravida lorem.
                 </p>
                 <div className="fa-social">
-                  <a className = "footer-link" href="https://www.facebook.com">
-                    <i className="fa fa-facebook" />
+                  <a className = "footer-link mr-3" href="https://www.facebook.com">
+                    <FontAwesomeIcon icon={faFacebookF}  />
                   </a>
-                  <a className = "footer-link" href="#">
-                    <i className="fa fa-twitter" />
+                  <a className = "footer-link mr-3" href="#">
+                    <FontAwesomeIcon icon={faTwitter} />
                   </a>
-                  <a className = "footer-link" href="#">
-                    <i className="fa fa-youtube-play" />
+                  <a className = "footer-link mr-3" href="#">
+                    <FontAwesomeIcon icon={faYoutube} />
                   </a>
-                  <a className = "footer-link" href="#">
-                    <i className="fa fa-instagram" />
+                  <a className = "footer-link mr-3" href="#">
+                    <FontAwesomeIcon icon={faInstagram} />
                   </a>
-                  <a className = "footer-link" href="#">
-                    <i className="fa fa-envelope-o" />
+                  <a className = "footer-link mr-3" href="#">
+                    <FontAwesomeIcon icon={faWhatsapp} />
                   </a>
                 </div>
               </div>
