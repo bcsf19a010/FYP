@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="home">
-      <div className="container">
+      <div className="homeContainer">
         <div className="text">
           <span>Shape Your Body</span>
           <h1>
