@@ -5,6 +5,8 @@
     width: 100%;
     max-width: 100%;
     justify-content: space-between;
+    padding-top: 120px;
+    padding-bottom: 120px;
 }
 .footer-section a{
     color:white;

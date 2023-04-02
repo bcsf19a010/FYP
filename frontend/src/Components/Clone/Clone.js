@@ -197,7 +197,7 @@ export default function Clone() {
       </svg>
 
       <svg
-        style={{ display: "block", maxHeight: "600px", maxWidth: "300px" }}
+        style={{ display: "block", maxHeight: "600px", maxWidth: "300px" ,margin:"30px"}}
         height="100%"
         width="50%"
         stroke="black"

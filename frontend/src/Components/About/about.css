@@ -7,10 +7,16 @@
   height:120vh;
   width:100%;
 }
+.hm.txt
+{
+  padding-top: 300px;
+  margin-right: 90px;
+}
 .cntnr
 {
-  padding-top: 150px;
+  padding-top: 260px;
   margin-left: 80px;
+  margin-right: 150px;
   font-family: "Muli", sans-serif;
   -webkit-font-smoothing: antialiased;
   display: flex;
