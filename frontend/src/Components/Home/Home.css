@@ -9,8 +9,8 @@
 }
 .container
 {
-  padding: 100px;
-  margin-left: 165px;
+  padding-top: 150px;
+  margin-left: 80px;
   font-family: "Muli", sans-serif;
   -webkit-font-smoothing: antialiased;
   display: flex;
@@ -25,11 +25,13 @@
   justify-content:center;
   padding: 0px;
   height:45vh;
-  width:70vh;
+  width:80vh;
   margin:0px;
 }
 span{
-  font-size: 18px;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 23px;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 6px;
@@ -38,12 +40,13 @@ span{
 .text,h1
 {
   position:relative;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
   font-size: 60px;
   color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 90px;
+  line-height: 80px;
 }
 .buttons
 {
@@ -68,7 +71,7 @@ span{
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: transparent;
-    color:rgb(255 82 0 / 82%);;
+    color:rgb(255 82 0 / 82%);
 
   }
 
