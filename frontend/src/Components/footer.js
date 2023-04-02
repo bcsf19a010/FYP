@@ -1,6 +1,5 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
-import image from "../Resources/images/logo.png";
 import './footer.css';
 
 export default function Footer() {
@@ -13,7 +12,7 @@ export default function Footer() {
               <div className="fs-about">
                 <div className="fa-logo">
                   <a className = "footer-link" href="#">
-                    <img src={image} alt="" />
+                    <img src="/images/logo.png" alt="" />
                   </a>
                 </div>
                 <p>
