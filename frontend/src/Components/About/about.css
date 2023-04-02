@@ -39,3 +39,15 @@
   height:110vh;
   width:100%;
 }
+
+.atxt {
+    font-family: Arial, sans-serif; /* sets the font family */
+    font-size: 16px; /* sets the font size */
+    color: #333; /* sets the text color */
+    line-height: 1.5; /* sets the line height */
+    margin: 3px; /* removes default margin */
+    padding: 20px; /* adds padding */
+    border: 2px solid #ccc; /* adds a border */
+    border-radius: 10px; /* rounds the corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* adds a box shadow */
+  }

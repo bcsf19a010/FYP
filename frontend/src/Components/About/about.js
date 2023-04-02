@@ -17,7 +17,7 @@ export default function About() {
 
       <section
         className="choseus-section spad"
-        style={{ backgroundColor: "black", color: "white" }}
+        style={{ backgroundColor: "black", color: "white", padding: "20px" }}
       >
         <div className="container">
           <div className="row">
@@ -76,32 +76,31 @@ export default function About() {
               <div class="about-text">
                 <div
                   class="section-title"
-                  style={{ marginLeft: "10px", marginTop: "85px" }}
+                  style={{ marginLeft: "10px", marginTop: "50px" }}
                 >
                   <span>About Us</span>
                   <h2>What we have done</h2>
                 </div>
                 <div class="at-desc" style={{ marginLeft: "10px" }}>
-                  <p>
-                    <strong>1.</strong> As a professional trainer, we have
-                    helped countless individuals achieve their fitness goals
-                    through our personalized training plans and state-of-the-art
-                    equipment.
+                  <p className="atxt">
+                    <strong>1.</strong> We have helped countless individuals
+                    achieve their fitness goals through our personalized
+                    training plans and state-of-the-art equipment.
                   </p>
-                  <p>
+                  <p className="atxt">
                     <strong>2.</strong> We have established a strong reputation
                     for providing exceptional customer service, fostering a
                     welcoming and inclusive environment, and offering a diverse
                     range of fitness programs to meet the needs of all our
                     clients.
                   </p>
-                  <p>
+                  <p className="atxt">
                     <strong>3.</strong> We have made it a priority to stay
                     up-to-date with the latest industry trends and best
                     practices to ensure that our clients receive the highest
                     quality fitness experience possible.
                   </p>
-                  <p>
+                  <p className="atxt">
                     <strong>4.</strong> Through our dedication and commitment to
                     our clients' success, we have built a loyal and supportive
                     community of fitness enthusiasts who continue to rely on us
