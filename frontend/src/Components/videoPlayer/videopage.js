@@ -1,24 +1,24 @@
 import React from "react";
-import "./video.css"
+import "./video.css";
+
 function VideoPlayer(props) {
   return (
     <div className="videoContainer">
-        <h1>Video</h1>
-        <video className="videoEdit" autoPlay muted loop>
-          <source src={props.videoPath} type="video/mp4" />
-        </video>
-        <ol className="list">
-          <li className="listItem">Place your hands firmly on the ground, directly under shoulders.</li>
-          <li className="listItem">
-            Flatten your back so your entire body is straight and slowly lower your
-            body
-            </li>
-          <li className="listItem">
-            Draw shoulder blades back and down, keeping elbows tucked close to your
-            body
-            </li>
-          <li className="listItem">Exhale as you push back to the starting position</li>
-        </ol>
+      <h2 style={{ margin: "25px", color: "Black" }}>{props.exercise.name}</h2>
+      <video className="videoEdit" autoPlay muted loop>
+        <source
+          src={`videos/${props.exercise.bodyPart}/${props.exercise.exReferece} `}
+          type="video/mp4"
+        />
+      </video>
+      <h4 style={{ marginTop: "25px", marginLeft: "25px" }}>
+        <u>Tips</u>
+      </h4>
+      <ol className="list">
+        {props.exercise.description?.map((d) => {
+          return <li className="listItem">{d} </li>;
+        })}
+      </ol>
     </div>
   );
 }

@@ -52,11 +52,11 @@ router.post("/login", async (req, resp) => {
 router.get("/getExercise/:bodypart", async (req, resp) => {
   const { bodypart } = req.params;
   try {
-    let result = await exercise.find({
+    let exercises = await exercise.find({
       bodyPart: bodypart,
     });
-    if (result) {
-      resp.status(200).json({ result });
+    if (exercises) {
+      resp.status(200).json({ exercises });
     } else {
       resp.status(500).json({ error: "Error retrieving data" });
     }
