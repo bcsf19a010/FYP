@@ -4,7 +4,7 @@ import { useState } from "react";
 
 //import Workouts from "./Components/Workout/Workouts";
 import Navbar from "./Components/Navbar";
-import About from "./Components/about";
+import About from "./Components/About/about";
 //import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/Signup";
 import Login from "./Components/Login_f/Login";
@@ -13,6 +13,7 @@ import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
 import "./app.css";
 import { useEffect } from "react";
+import VideoPlayer from "./Components/videoPlayer/videopage";
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
@@ -29,7 +30,7 @@ function App() {
 
   //const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="App container-fluid" style={{ backgroundImage }}>
+    <div className="App" style={{ backgroundImage }}>
       <BrowserRouter>
         <Routes>
           {/* <Route
@@ -44,10 +45,18 @@ function App() {
           /> */}
           <Route
             path="/about"
-            element={[<Navbar />, <About />]}
+            element={[<Navbar />, <About />, <Footer />]}
             // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
           <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />
+          <Route
+            path="/video"
+            element={[
+              <Navbar />,
+              <VideoPlayer videoPath="videos/PushUps.mp4" />,
+              <Footer />,
+            ]}
+          />
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/humanClone"

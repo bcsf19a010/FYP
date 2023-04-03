@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import loginImage from "../../Resources/images/login_image.jpg";
 import "./Login.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import {
   MDBBtn,
@@ -47,7 +47,6 @@ export default function Login(props) {
           "Content-type": "application/json",
         },
       });
-      console.log("response\n\n", response);
 
       const data = await response.json();
       if (response.ok) {
@@ -81,8 +80,8 @@ export default function Login(props) {
           <MDBRow className="g-0">
             <MDBCol md="6">
               <MDBCardImage
-                style={{ marginTop: "-9px" }}
-                src={loginImage}
+                style={{ marginTop: "-9px",marginLeft:"-1px", marginBottom:"-2px"}}
+                src={"images/login_image.jpg"}
                 alt="login form"
                 className="rounded-start w-100"
               />
@@ -140,15 +139,16 @@ export default function Login(props) {
                     Login
                   </MDBBtn>
                 </form>
-                <a className="small text-muted" href="#!">
+                  <a className="small text-muted" href="#!">
                   Forgot password?
-                </a>
-                <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                  Don't have an account?{" "}
-                  <a href="#!" style={{ color: "#393f81" }}>
-                    Register here
                   </a>
-                </p>
+                  <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
+                     Don't have an account?{" "}
+                    <a href="#!" style={{ color: "#393f81" }}>
+                      Register here
+                    </a>
+                  </p>
+                
 
                 {/* <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">

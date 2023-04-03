@@ -1,12 +1,64 @@
-
-
+.home
+{
+  background-image: url("../../../public/images/hero-1.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  height:120vh;
+  width:100%;
+}
+.homeContainer
+{
+  padding-top: 150px;
+  margin-right:140px;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+}
+.text
+{
+  color: white;
+  align-self:last baseline;
+  justify-content:center;
+  padding: 0px;
+  height:45vh;
+  width:80vh;
+  margin:0px;
+}
+span{
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 23px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 6px;
+  margin-bottom: 12px;
+}
+.text,h1
+{
+  position:relative;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 60px;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 80px;
+}
+.buttons
+{
+  align-self:last baseline;
+  justify-content: space-between;
+}
 .Button {
     display: inline-block;
     padding: 20px 40px;
     font-size: 24px;
     font-weight: bold;
     color: #fff;
-    background-color: rgb(78, 43, 2);
+    background-color:rgb(255 82 0 / 82%);
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
@@ -18,15 +70,18 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: transparent;
+    color:rgb(255 82 0 / 82%);
 
   }
 
   .lgn{
     margin-right: 10px;
+    width: 230px;
   }
 
   .sg{
     margin-left: 10px;
+    width:230px;
   }
   
   

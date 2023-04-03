@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "./Login/loginSlice";
-import imagae from "../Resources/images/logo.png";
 
 export default function Navbar(props) {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -20,7 +19,7 @@ export default function Navbar(props) {
         style={{ backgroundColor: "black", paddingTop: "30px" }}
       >
         <Link className="navbar-brand text-dark" to="/">
-          <img src={imagae} alt="Logo" />
+          <img src="images/logo.png" alt="Logo" />
         </Link>
         <button
           className="navbar-toggler"

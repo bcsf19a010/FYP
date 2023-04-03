@@ -1,0 +1,53 @@
+.hm
+{
+  background-image: url("../../../public/images/aboutUs.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  height:120vh;
+  width:100%;
+}
+.cntnr
+{
+  padding-top: 260px;
+  margin-left: 80px;
+  margin-right: 150px;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  flex-wrap: wrap;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.txt
+{
+  color: white;
+  align-self:last baseline;
+  justify-content:center;
+  padding: 0px;
+  height:45vh;
+  width:80vh;
+  margin:0px;
+}
+.set-bg
+{
+  background-image: url("../../../public/images/aboutUs2.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  height:110vh;
+  width:100%;
+}
+
+.atxt {
+    font-family: Arial, sans-serif; /* sets the font family */
+    font-size: 16px; /* sets the font size */
+    color: #333; /* sets the text color */
+    line-height: 1.5; /* sets the line height */
+    margin: 3px; /* removes default margin */
+    padding: 20px; /* adds padding */
+    border: 2px solid #ccc; /* adds a border */
+    border-radius: 10px; /* rounds the corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* adds a box shadow */
+  }
