@@ -63,7 +63,8 @@ span{
     text-decoration: none;
     text-align: center;
     transition: all 0.2s ease-in-out;
-    width: 200px;
+    width: 173px;
+    height: 70px;
   }
   
   .Button:hover {
@@ -76,12 +77,10 @@ span{
 
   .lgn{
     margin-right: 10px;
-    width: 230px;
   }
 
   .sg{
     margin-left: 10px;
-    width:230px;
   }
   
   
