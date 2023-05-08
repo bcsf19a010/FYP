@@ -1,0 +1,30 @@
+  
+  /* Image at the top */
+  .signup-image {
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../public/images/signup-img.jpg");
+    background-size: cover;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  /* Submit button */
+  .signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #9b0505;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .mdb-box{
+    margin-top:10px;
+  }
+ 
+  
+
+  
