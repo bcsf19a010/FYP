@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -11,6 +11,7 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
+import UserPanel from "./Components/UserPanel/UserPanel";
 import "./app.css";
 import { useEffect } from "react";
 import VideoPlayer from "./Components/videoPlayer/videopage";
@@ -48,7 +49,7 @@ function App() {
             element={[<Navbar />, <About />, <Footer />]}
             // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
-          <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />
+          <Route path="/" element={[<Navbar />, <UserPanel />, <Footer />]} />
           <Route
             path="/video"
             element={[

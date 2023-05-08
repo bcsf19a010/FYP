@@ -1,0 +1,31 @@
+
+.container
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.trainer
+{
+    height: 300px;
+    background-color: grey;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ebooks
+{
+    height: 200px;
+    background-color: blue;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.nImg
+{
+    height: 50px;
+}
