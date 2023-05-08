@@ -11,9 +11,11 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
+import AdminPanel from "./Components/AdminPanel/adminPanel";
 import "./app.css";
 import { useEffect } from "react";
 import VideoPlayer from "./Components/videoPlayer/videopage";
+import Exercise from "./Components/Exercise/Exercise"
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
@@ -30,7 +32,7 @@ function App() {
 
   //const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="App" style={{ backgroundImage }}>
+    <div className="App" style={{ backgroundImage}}>
       <BrowserRouter>
         <Routes>
           {/* <Route
@@ -66,6 +68,10 @@ function App() {
             path="/login"
             element={[<Navbar />, <Login setbgclr={setbgclr} />, <Footer />]}
           />
+          
+          <Route path="/adminPanel" element={[<Navbar />,<AdminPanel/>,<Footer/>]}/>
+          <Route path="/exercise" element={[<Exercise/>]}/>
+
         </Routes>
       </BrowserRouter>
     </div>
