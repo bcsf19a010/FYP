@@ -16,6 +16,7 @@ import "./app.css";
 import { useEffect } from "react";
 import DisplayExercises from "./Components/DisplayExercises";
 import SignUp from "./Components/SignUp/Signup";
+import Exercise  from "./Components/Exercise/Exercise";
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
