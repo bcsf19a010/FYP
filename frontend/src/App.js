@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 //import Workouts from "./Components/Workout/Workouts";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About/about";
 //import Login from "./Components/Login/Login";
-import Signup from "./Components/SignUp/Signup";
+//import Signup from "./Components/SignUp/Signup";
 import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
@@ -14,8 +14,8 @@ import Home from "./Components/Home/Home";
 import AdminPanel from "./Components/AdminPanel/adminPanel";
 import "./app.css";
 import { useEffect } from "react";
-import VideoPlayer from "./Components/videoPlayer/videopage";
-import Exercise from "./Components/Exercise/Exercise"
+import DisplayExercises from "./Components/DisplayExercises";
+import SignUp from "./Components/SignUp/Signup";
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
@@ -52,14 +52,13 @@ function App() {
           />
           <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />
           <Route
-            path="/video"
-            element={[
-              <Navbar />,
-              <VideoPlayer videoPath="videos/PushUps.mp4" />,
-              <Footer />,
-            ]}
+            path="/exercise"
+            element={[<Navbar />, <DisplayExercises />, <Footer />]}
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/signup"
+            element={[<Navbar />, <SignUp setbgclr={setbgclr} />, <Footer />]}
+          />
           <Route
             path="/humanClone"
             element={[<Navbar />, <Clone />, <Footer />]}
