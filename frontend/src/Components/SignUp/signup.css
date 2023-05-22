@@ -9,6 +9,7 @@
     height: 200px;
     margin-bottom: 20px;
   }
+
   
   /* Submit button */
   .signup-form button {
@@ -21,22 +22,112 @@
     cursor: pointer;
   }
   
-  .mdb-box{
+  /* .mdb-box{
     margin-top:10px;
-  }
+  } */
  
-  .signup-container {
+  /* .signup-container {
+    background-color: #fff;
     margin: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  .signup-form {
+  } */
+
+  .sform {
+    width: 90%;
+     margin: 10px auto;
+      position: relative;
+      
+     }
+
+
+  .fcontainer{
+    margin: 25px;
+    background-color: #fff;
     border: 2px solid rgb(141, 141, 141);
     border-radius: 1%;
+    padding-left: 0%;
+    padding-right: 0%;
   }
   
 
+  
+  
+  
+  /* .signup-form {
+    border: 2px solid rgb(141, 141, 141);
+    border-radius: 1%;
+  } */
+  
+  .radio-buttons {
+    display: flex;
+    /* justify-content: center; */
+    /* margin-top: 20px; */
+    margin-bottom: 10px;
+  }
+  
+  .radio-buttons label {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .radio-buttons input[type="radio"] + span {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+  }
+
+  .radio-buttons input[type="radio"] + span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #337ab7;
+  }
+  
+  .radio-buttons input[type="radio"]:checked + span:before {
+    background-color: #337ab7;
+  }
+  
+  .radio-buttons input[type="radio"] + span:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .radio-buttons input[type="radio"]:checked + span:after {
+    display: block;
+  }
+  
+  .radio-buttons input[type="radio"] + span:before,
+  .radio-buttons input[type="radio"] + span:after {
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+  }
+  
+  .radio-buttons input[type="radio"] + span:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+ 
+  
+
+  
+  
   

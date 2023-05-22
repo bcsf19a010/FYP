@@ -6,8 +6,6 @@ const ownerRoutes = require("./Controllers/ownerController");
 const userRoutes = require("./Controllers/userController");
 const adminRoutes = require("./Controllers/AdminController");
 const loginRoutes = require("./Controllers/loginRoutes");
-//const signupRoutes = require("./Controllers/signuproutes");
-
 const DbConnection = require("./mongoose");
 
 DbConnection();
@@ -34,7 +32,6 @@ app.use("/owner", ownerRoutes);
 app.use("/user", userRoutes);
 app.use("/admin", adminRoutes);
 app.use("/login", loginRoutes);
-//app.use("/signup",signupRoutes);
 
 app.listen(8000, () => {
   console.log("app is listening at http://localhost:8000");

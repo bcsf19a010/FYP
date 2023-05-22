@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const Owner = require("../models/GymOwner");
 const exercise = require("../models/Excercise");
 const ebook = require("../models/Ebooks");
 const diet = require("../models/Nutrients");
@@ -13,23 +14,29 @@ const createToken = (_id) => {
 
 router.post("/signup", async (req, resp) => {
   try {
-    var user;
-    if (req.body.owner) {
-      const { username, email, password, phoneNo, address, owner } = req.body;
-      user = await User.signup(
-        username,
-        email,
-        password,
-        phoneNo,
-        address,
-        owner
-      );
+    const { email } = req.body;
+    const owner = await Owner.findOne({ email });
+    if (owner) {
+      resp.status(400).json({ error: "Email already exist" });
     } else {
-      const { username, email, password, phoneNo, address } = req.body;
-      user = await User.signup(username, email, password, phoneNo, address);
+      var user;
+      if (req.body.owner) {
+        const { username, email, password, phoneNo, address, owner } = req.body;
+        user = await User.signup(
+          username,
+          email,
+          password,
+          phoneNo,
+          address,
+          owner
+        );
+      } else {
+        const { username, email, password, phoneNo, address } = req.body;
+        user = await User.signup(username, email, password, phoneNo, address);
+      }
+      const token = createToken(user._id);
+      resp.status(200).json({ username: user.username, token });
     }
-    const token = createToken(user._id);
-    resp.status(200).json({ username: user.username, token });
   } catch (error) {
     resp.status(400).json({ error: error.message });
   }

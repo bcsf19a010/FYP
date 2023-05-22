@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MDBContainer,
   MDBRow,
@@ -16,43 +16,83 @@ const SignUp = (props) => {
   const [password, setPassword] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [address, setAddress] = useState("");
+  const [userType, setUserType] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     // This function will be called when the component mounts
-    console.log("in enter");
     props.setbgclr(false);
     return () => {
       // This function will be called when the component unmounts
       props.setbgclr(true);
-      console.log("in return");
     };
   }, []);
 
-  // const navigate = useNavigate();
-
-  // const loginRoute = () => {
-  //   navigate("/login");
-  // };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("first");
-    // Perform sign-up logic here with the form data
-    // For example, you could make an API call to a server
 
-    // Reset the form
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setPhoneNo("");
-    setAddress("");
+    if (username && email && password && phoneNo && address && userType) {
+      if (userType === "user") {
+        const response = await fetch("/user/signup", {
+          method: "POST",
+          body: JSON.stringify({ username, email, password, phoneNo, address }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        // const data = await response.json();
+        if (response.ok) {
+          navigate("/login");
+        } else {
+          const data = await response.json();
+          setError(data.error);
+          setAddress("");
+          setEmail("");
+          setPassword("");
+          setPhoneNo("");
+          setUserType("");
+          setUsername("");
+          setTimeout(function () {
+            setError("");
+          }, 2000);
+        }
+      } else if (userType === "owner") {
+        const response = await fetch("/owner/signup", {
+          method: "POST",
+          body: JSON.stringify({ username, email, password, phoneNo, address }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        if (response.ok) {
+          navigate("/login");
+        } else {
+          const data = await response.json();
+          setError(data.error);
+          setAddress("");
+          setEmail("");
+          setPassword("");
+          setPhoneNo("");
+          setUserType("");
+          setUsername("");
+          setTimeout(function () {
+            setError("");
+          }, 2000);
+        }
+      }
+
+      // } else {
+      //   alert(error);
+      // }
+    }
   };
-
   return (
     <div className="signup-container">
       <MDBContainer>
+        <h4>{error}</h4>
         <MDBRow center>
-          <MDBCol md="6">
+          <MDBCol md="6" className="fcontainer">
             <form onSubmit={handleSubmit} className="signup-form">
               <div className="signup-image">
                 <div>
@@ -61,10 +101,10 @@ const SignUp = (props) => {
                     icon="cubes fa-3x me-3"
                     style={{ color: "#ff6219" }}
                   />
-                  <h2 className="text-center">Sign Up</h2>
+                  <h1 className="text-center">Sign Up</h1>
                 </div>
               </div>
-              <div>
+              <div className="sform">
                 <MDBInput
                   className="mdb-box"
                   label="Username"
@@ -111,6 +151,31 @@ const SignUp = (props) => {
                   onChange={(e) => setAddress(e.target.value)}
                   required
                 />
+                <div className="radio-buttons">
+                  <label>Which account are you Creating? </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="user-type"
+                      value="user"
+                      checked={userType === "user"}
+                      onChange={(e) => setUserType(e.target.value)}
+                      required
+                    />
+                    User
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="user-type"
+                      value="owner"
+                      checked={userType === "owner"}
+                      onChange={(e) => setUserType(e.target.value)}
+                      required
+                    />
+                    Owner
+                  </label>
+                </div>
                 <div className="text-center">
                   <MDBBtn className="mdb-box" color="primary" type="submit">
                     Sign Up

@@ -17,15 +17,20 @@ const createToken = (_id) => {
 router.post("/signup", async (req, resp) => {
   try {
     const { username, email, password, phoneNo, address } = req.body;
-    const gymOwner = await owner.signup(
-      username,
-      email,
-      password,
-      phoneNo,
-      address
-    );
-    const token = createToken(gymOwner._id);
-    resp.status(200).json({ username: gymOwner.username, token });
+    const checkUser = await user.findOne({ email });
+    if (checkUser) {
+      resp.status(400).json({ error: "Email already exist" });
+    } else {
+      const gymOwner = await owner.signup(
+        username,
+        email,
+        password,
+        phoneNo,
+        address
+      );
+      const token = createToken(gymOwner._id);
+      resp.status(200).json({ username: gymOwner.username, token });
+    }
   } catch (error) {
     resp.status(400).json({ error: error.message });
   }

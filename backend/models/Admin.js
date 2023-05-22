@@ -13,6 +13,7 @@ const adminSchema = new mongoose.Schema({
 });
 
 adminSchema.statics.login = async function (email, password) {
+  console.log("\nin schema\n");
   if (!email || !password) throw Error("Fill all credentials");
 
   const checkEmail = await this.findOne({ email });
@@ -20,7 +21,7 @@ adminSchema.statics.login = async function (email, password) {
 
   const findAdmin = await bcrypt.compare(password, checkEmail.password);
   if (!findAdmin) throw Error("Incorrect Password");
-
+  console.log("out schema\n", checkEmail);
   return checkEmail;
 };
 
