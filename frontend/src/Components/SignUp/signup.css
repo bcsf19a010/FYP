@@ -25,6 +25,18 @@
     margin-top:10px;
   }
  
+  .signup-container {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .signup-form {
+    border: 2px solid rgb(141, 141, 141);
+    border-radius: 1%;
+  }
   
 
   

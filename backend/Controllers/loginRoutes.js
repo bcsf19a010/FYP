@@ -16,6 +16,8 @@ router.post("/", async (req, resp) => {
     } else if (owner) {
       console.log("owner find");
       resp.redirect("/owner/login");
+    } else {
+      throw Error("Incorrect Email");
     }
 
     //   const user = await User.login(email, password);

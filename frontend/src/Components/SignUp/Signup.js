@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+//import { useNavigate } from "react-router-dom";
 import {
   MDBContainer,
   MDBRow,
@@ -9,12 +10,29 @@ import {
 } from "mdb-react-ui-kit";
 import "./signup.css";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [address, setAddress] = useState("");
+
+  useEffect(() => {
+    // This function will be called when the component mounts
+    console.log("in enter");
+    props.setbgclr(false);
+    return () => {
+      // This function will be called when the component unmounts
+      props.setbgclr(true);
+      console.log("in return");
+    };
+  }, []);
+
+  // const navigate = useNavigate();
+
+  // const loginRoute = () => {
+  //   navigate("/login");
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,11 +49,11 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ border: "2px", padding: "5px" }}>
+    <div className="signup-container">
       <MDBContainer>
         <MDBRow center>
           <MDBCol md="6">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="signup-form">
               <div className="signup-image">
                 <div>
                   <MDBIcon
@@ -46,7 +64,7 @@ const SignUp = () => {
                   <h2 className="text-center">Sign Up</h2>
                 </div>
               </div>
-              <div className="signup-form">
+              <div>
                 <MDBInput
                   className="mdb-box"
                   label="Username"
