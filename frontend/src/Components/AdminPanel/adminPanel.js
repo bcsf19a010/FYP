@@ -7,21 +7,23 @@ function AdminPanel() {
     
    <>
    
-   <div className='p1'>
+   <div className='back_pic'>
    
-      <div className="container">
-        <div className='exercise'>
+      <div className="ahmad_container">
+        <div className='exe'>
           <a href="./exercise">        
-          <img src="/images/fitness.png" alt="Photo 1"  /></a>
-          <h3> <font color='white' >Exercises</font> </h3>
+          <img src="/images/fitness.png" alt="Photo 1"  />
+          <h3> Exercises</h3></a>
         </div>
-        <div>    
+        <div className='eBooks'>    
           <a href="">
-            <img src="/images/book.gif"alt="Photo 2" /></a>    
+            <img src="/images/book.gif"alt="Photo 2" />
+             <h3>E-books</h3></a>    
         </div>
-        <div>
+        <div className='owners'>
           <a href="">
-          <img src="/images/boss.png" alt="Photo 3"  /></a>
+          <img src="/images/boss.png" alt="Photo 3"  />
+          <h3>Owners</h3></a>
         </div>
       </div>
     </div>
