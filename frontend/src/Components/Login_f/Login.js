@@ -40,7 +40,7 @@ export default function Login(props) {
   const submit = async (e) => {
     e.preventDefault();
     if (email && password) {
-      const response = await fetch("/user/login", {
+      const response = await fetch("/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {
@@ -80,7 +80,11 @@ export default function Login(props) {
           <MDBRow className="g-0">
             <MDBCol md="6">
               <MDBCardImage
-                style={{ marginTop: "-9px",marginLeft:"-1px", marginBottom:"-2px"}}
+                style={{
+                  marginTop: "-9px",
+                  marginLeft: "-1px",
+                  marginBottom: "-2px",
+                }}
                 src={"images/login_image.jpg"}
                 alt="login form"
                 className="rounded-start w-100"
@@ -139,16 +143,15 @@ export default function Login(props) {
                     Login
                   </MDBBtn>
                 </form>
-                  <a className="small text-muted" href="#!">
+                <a className="small text-muted" href="#!">
                   Forgot password?
+                </a>
+                <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
+                  Don't have an account?{" "}
+                  <a href="#!" style={{ color: "#393f81" }}>
+                    Register here
                   </a>
-                  <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                     Don't have an account?{" "}
-                    <a href="#!" style={{ color: "#393f81" }}>
-                      Register here
-                    </a>
-                  </p>
-                
+                </p>
 
                 {/* <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">

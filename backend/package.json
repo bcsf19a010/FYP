@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.4.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "ejs": "^3.1.8",
@@ -10,7 +11,7 @@
     "g": "^2.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.8.0",
-    "mongoose": "^6.5.0",
+    "mongoose": "^6.10.5",
     "nodemon": "^2.0.19",
     "validator": "^13.7.0"
   },

@@ -90,30 +90,30 @@ export default function Footer() {
                 <ul>
                   <li>
                     <div className="fw-recent">
-                      <h7>
+                      <h6>
                         Physical fitness may help prevent depression, anxiety
-                      </h7>
+                      </h6>
                     </div>
                   </li>
                   <li>
                     <div className="fw-recent">
-                      <h7>Consistency is key to seeing results in fitness</h7>
+                      <h6>Consistency is key to seeing results in fitness</h6>
                     </div>
                   </li>
                   <li>
                     <div className="fw-recent">
-                      <h7>
+                      <h6>
                         Proper nutrition is important for fueling workouts and
                         building muscle
-                      </h7>
+                      </h6>
                     </div>
                   </li>
                   <li>
                     <div className="fw-recent">
-                      <h7>
+                      <h6>
                         Strength training can help improve bone density,
                         increase muscle mass
-                      </h7>
+                      </h6>
                     </div>
                   </li>
                 </ul>

@@ -9,7 +9,7 @@ export default function Home() {
         <div className="text">
           <span>Shape Your Body</span>
           <h1>
-            Be <font color="orangered">Strong</font> <br></br> Training Hard
+            Be <font color="orangered">Strong</font> <br></br> <font color="orangered">training</font> Hard
           </h1>
         </div>
         <div className="buttons">

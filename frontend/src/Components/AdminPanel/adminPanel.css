@@ -1,0 +1,49 @@
+.back_pic
+{
+  background-image: url("../../../public/images/theme.jpg");
+  /* background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  height:120vh;
+  width:100%; */
+  background-size: cover;
+  height: 80vh;
+  /* width: 100%; */
+  /* margin: 0px;
+  padding: 0px;
+  display: flex; */
+
+  
+}
+.ahmad_container {
+   display: flex;
+   justify-content: space-between;
+   padding: 50px;
+  }
+  
+.ahmad_container img {
+    width: 200px;
+    height: 200px;
+  }
+  .exe{
+    text-align: center;
+  }
+  .eBooks
+  {
+    text-align: center;
+
+  }
+  .owners
+  {
+    text-align: center;
+
+  }
+  
+ 
+  
+  
+  
+  
+  
+  
+  
