@@ -18,7 +18,8 @@ import "./app.css";
 import { useEffect } from "react";
 import DisplayExercises from "./Components/DisplayExercises";
 import SignUp from "./Components/SignUp/Signup";
-import Exercise  from "./Components/Exercise/Exercise";
+import Exercise from "./Components/Exercise/Exercise";
+import AddExercise from "./Components/Exercise/AddExercise";
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
@@ -35,7 +36,7 @@ function App() {
 
   //const user = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="App" style={{ backgroundImage}}>
+    <div className="App" style={{ backgroundImage }}>
       <BrowserRouter>
         <Routes>
           {/* <Route
@@ -70,10 +71,13 @@ function App() {
             path="/login"
             element={[<Navbar />, <Login setbgclr={setbgclr} />, <Footer />]}
           />
-          
-          <Route path="/adminPanel" element={[<Navbar />,<AdminPanel/>,<Footer/>]}/>
-          <Route path="/exercise" element={[<Exercise/>]}/>
 
+          <Route
+            path="/adminPanel"
+            element={[<Navbar />, <AdminPanel />, <Footer />]}
+          />
+          <Route path="/exercise" element={[<Exercise />]} />
+          <Route path="/addexercise" element={[<AddExercise />]} />
         </Routes>
       </BrowserRouter>
     </div>
