@@ -7,35 +7,22 @@ export default function UserPanel ()
             <div className='userpanel'>
                 <center><h1 className='qoute'><font color="orangered">MOVE IT</font> Or LOSE IT</h1></center>
                 <div className='trainer'>
-                   <center><h3>Welcome to the Gym</h3></center> 
+                   <h3 className='eqoute'><font color='black'>BODY ACHIEVES WHAT MIND BELEIVES</font></h3>
                     <ul>
                         <li>
-                            <a href="/Home"><img src={`${process.env.PUBLIC_URL}/images/b.png`} ></img></a>
+                            <a href="/Home"><img src={`${process.env.PUBLIC_URL}/images/b.png`} ></img> See Exercise</a>
                         </li>
-                        
                     </ul>
                 </div>
                 <hr></hr>
                 <div  className='diet'  >
+                <h3 className='dqoute'><font color="black">LIFE IS A TRAGEDY OF NUTRITUINTS</font></h3>
                     <ul >
                         <li>
-                            <a href="/Home"><img className='nImg' src={`${process.env.PUBLIC_URL}/images/download.jpg`} ></img></a>
-                        </li>
-                        <li>Welcome to the Gym</li>
-                    </ul>
-                </div>
-                <hr></hr>
-                <div  className='ebooks'  >
-                    <ul >
-                        <li>
-                            <a href="/Home"><img className='nImg' src={`${process.env.PUBLIC_URL}/images/download.jpg`} ></img></a>
-                        </li>
-                        <li>
-                            Welcome to the Gym
+                            <a href="/Home" className='ebutton'><img className='nImg' src={`${process.env.PUBLIC_URL}/images/nu.png`} ></img> See Nutrients</a>
                         </li>
                     </ul>
                 </div>
-
             </div>
     </>    
     )

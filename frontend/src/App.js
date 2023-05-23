@@ -20,6 +20,7 @@ import DisplayExercises from "./Components/DisplayExercises";
 import SignUp from "./Components/SignUp/Signup";
 import Exercise from "./Components/Exercise/Exercise";
 import AddExercise from "./Components/Exercise/AddExercise";
+import UserPanel from "./Components/UserPanel/UserPanel";
 
 function App() {
   const [bgclr, setbgclr] = useState(true);
@@ -78,6 +79,7 @@ function App() {
           />
           <Route path="/exercise" element={[<Exercise />]} />
           <Route path="/addexercise" element={[<AddExercise />]} />
+          <Route path="/userpanel" element={[<Navbar />,<UserPanel/>,<Footer />]}/>
         </Routes>
       </BrowserRouter>
     </div>
