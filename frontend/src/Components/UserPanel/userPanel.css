@@ -1,31 +1,55 @@
-
-.container
+.userpanel
 {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    box-sizing: border-box;
-
+    margin: 0px;
+    padding: 0px;
+    background-image: linear-gradient(#1d4350, #a43931);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:150vh;
+}
+ul
+{
+    padding: 55px;
+    display: flex;
+    flex-direction: row;
+}
+li
+{
+    list-style: none;
 }
 .trainer
 {
-    height: 300px;
-    background-color: grey;
-    list-style: none;
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    box-shadow: 10px 10px 10px 10px ;
+    height: 180px;
+    width: 90%;
 }
-
+.qoute
+{
+    margin-top: 30px;
+    font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 .ebooks
 {
-    height: 200px;
-    background-color: blue;
-    list-style: none;
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
+    align-items:first baseline;
+    justify-content: center;
+    box-shadow: 10px 10px 10px 10px ;
+    height: 180px;
+    width: 90%;
 }
-.nImg
+.diet
 {
-    height: 50px;
+    margin-top: 30px;
+    display: flex;
+    align-items:first baseline;
+    justify-content: center;
+    box-shadow: 10px 10px 10px 10px ;
+    height: 180px;
+    width: 90%;   
 }
