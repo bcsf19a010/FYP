@@ -53,6 +53,19 @@ router.get("/viewUsers", async (req, resp) => {
 });
 
 // **************************** Exercise Routes **********************
+
+router.post("/addExercise", async (req, resp) => {
+  try {
+    let ex = new exercise(req.body);
+    console.log("\n\nexercise", ex);
+    let result = await ex.save();
+    resp.status(200).json(result);
+    //const {exReferece,bodyPart,name,description} = req.body;
+  } catch (error) {
+    resp.status(400).json({ error: error.message });
+  }
+});
+
 router.get("/getExercises", async (req, resp) => {
   try {
     const result = await exercise.find();
