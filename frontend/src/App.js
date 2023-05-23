@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-=======
+
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
->>>>>>> 1e8e93a0e20a72c105a25b77290011865140d6ce
 import { useState } from "react";
 
 //import Workouts from "./Components/Workout/Workouts";
@@ -16,11 +12,8 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
-<<<<<<< HEAD
-import UserPanel from "./Components/UserPanel/UserPanel";
-=======
+
 import AdminPanel from "./Components/AdminPanel/adminPanel";
->>>>>>> 1e8e93a0e20a72c105a25b77290011865140d6ce
 import "./app.css";
 import { useEffect } from "react";
 import DisplayExercises from "./Components/DisplayExercises";
@@ -60,7 +53,7 @@ function App() {
             element={[<Navbar />, <About />, <Footer />]}
             // element={user ? [<Navbar />, <About />] : <Navigate to={"/"} />}
           />
-          <Route path="/" element={[<Navbar />, <UserPanel />, <Footer />]} />
+          <Route path="/" element={[<Navbar />, <Home />, <Footer />]} />
           <Route
             path="/exercise"
             element={[<Navbar />, <DisplayExercises />, <Footer />]}
