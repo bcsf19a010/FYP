@@ -20,11 +20,15 @@ router.post("/", async (req, resp) => {
         "http://localhost:8000/user/login",
         { email, password }
       );
-      console.log("\n\nresoponse", userResponse.data.username);
-      resp.json({
-        username: userResponse.data.username,
-        token: userResponse.data.token,
-      });
+      if (userResponse.data.username) {
+        resp.json({
+          username: userResponse.data.username,
+          token: userResponse.data.token,
+        });
+      } else {
+        console.log("\nerror\n", userResponse.data);
+        resp.status(400).json({ error: userResponse.data.error });
+      }
     } else if (owner) {
       console.log("owner find");
       const ownerResponse = await axios.post(
@@ -35,10 +39,14 @@ router.post("/", async (req, resp) => {
         }
       );
       console.log("\n\nresoponse", ownerResponse.data);
-      resp.json({
-        username: ownerResponse.data.username,
-        token: ownerResponse.data.token,
-      });
+      if (ownerResponse.data.username) {
+        resp.json({
+          username: ownerResponse.data.username,
+          token: ownerResponse.data.token,
+        });
+      } else {
+        resp.status(400).json({ error: ownerResponse.data.error });
+      }
     } else if (admin) {
       console.log("\nadmin found");
       const adminResponse = await axios.post(
@@ -48,11 +56,15 @@ router.post("/", async (req, resp) => {
           password,
         }
       );
-      console.log("\n\nresoponse", adminResponse.data.username);
-      resp.json({
-        username: adminResponse.data.username,
-        token: adminResponse.data.token,
-      });
+      console.log("\n\nresoponse", adminResponse.data);
+      if (adminResponse.data.username) {
+        resp.json({
+          username: adminResponse.data.username,
+          token: adminResponse.data.token,
+        });
+      } else {
+        resp.status(400).json({ error: adminResponse.data.error });
+      }
     }
     // else if (owner) {
     //   console.log("owner find");

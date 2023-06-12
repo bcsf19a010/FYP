@@ -12,8 +12,14 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
+<<<<<<< HEAD
 import AddNutrient from "./Components/Nutrietns/AddNutrient"
 
+=======
+<<<<<<< HEAD
+import UserPanel from "./Components/UserPanel/UserPanel";
+=======
+>>>>>>> c95a8feab2a6db63bd4b39a5fd29c002816c6bc5
 import AdminPanel from "./Components/AdminPanel/adminPanel";
 import "./app.css";
 import { useEffect } from "react";

@@ -44,7 +44,7 @@ router.post("/login", async (req, resp) => {
     const token = createToken(gymOwner._id);
     resp.status(200).json({ username: gymOwner.username, token });
   } catch (error) {
-    resp.status(400).json({ error: error.message });
+    resp.status(200).json({ error: error.message });
   }
 });
 
