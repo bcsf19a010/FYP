@@ -7,11 +7,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:150vh;
+    height:130vh;
+    width:100%;
 }
-ul
+.qoute
 {
-    padding: 55px;
+    margin-top: 30px;
+    font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+ul{
     display: flex;
     flex-direction: row;
 }
@@ -23,17 +33,28 @@ li
 {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     box-shadow: 10px 10px 10px 10px ;
     height: 180px;
     width: 90%;
 }
-.qoute
+.eqoute
 {
-    margin-top: 30px;
-    font-family: "Muli", sans-serif;
-  -webkit-font-smoothing: antialiased;
+    align-self: center;
 }
-.ebooks
+.trainer,ul
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ebutton, a
+{
+    text-decoration: none;
+    color:rgb(68, 250, 123);
+}
+
+/* .ebooks
 {
     margin-top: 30px;
     display: flex;
@@ -42,14 +63,30 @@ li
     box-shadow: 10px 10px 10px 10px ;
     height: 180px;
     width: 90%;
-}
-.diet
+} */
+ .diet
 {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     align-items:first baseline;
     justify-content: center;
     box-shadow: 10px 10px 10px 10px ;
     height: 180px;
     width: 90%;   
+}  
+.dqoute
+{
+    align-self: center;
+}
+.diet,ul
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nImg
+{
+    height: 60px;
+    width: 60px;
 }

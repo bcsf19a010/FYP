@@ -75,6 +75,7 @@ const AddExercise = () => {
   return (
     <div className="ae-cntr">
       <form className="ae-container" onSubmit={handleSubmit}>
+          <h2 class="f-name">Add Exercise</h2>
         <div>
           <label htmlFor="file">Upload File:</label>
           <input type="file" id="file" required onChange={handleFileChange} />
