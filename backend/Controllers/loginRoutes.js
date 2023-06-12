@@ -24,6 +24,7 @@ router.post("/", async (req, resp) => {
         resp.json({
           username: userResponse.data.username,
           token: userResponse.data.token,
+          accountType: "User",
         });
       } else {
         console.log("\nerror\n", userResponse.data);
@@ -43,6 +44,7 @@ router.post("/", async (req, resp) => {
         resp.json({
           username: ownerResponse.data.username,
           token: ownerResponse.data.token,
+          accountType: "Owner",
         });
       } else {
         resp.status(400).json({ error: ownerResponse.data.error });
@@ -57,10 +59,11 @@ router.post("/", async (req, resp) => {
         }
       );
       console.log("\n\nresoponse", adminResponse.data);
-      if (adminResponse.data.username) {
+      if (adminResponse.data) {
         resp.json({
           username: adminResponse.data.username,
           token: adminResponse.data.token,
+          accountType: "Admin",
         });
       } else {
         resp.status(400).json({ error: adminResponse.data.error });
