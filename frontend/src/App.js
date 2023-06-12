@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -12,14 +11,7 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
-<<<<<<< HEAD
-import AddNutrient from "./Components/Nutrietns/AddNutrient"
-
-=======
-<<<<<<< HEAD
 import UserPanel from "./Components/UserPanel/UserPanel";
-=======
->>>>>>> c95a8feab2a6db63bd4b39a5fd29c002816c6bc5
 import AdminPanel from "./Components/AdminPanel/adminPanel";
 import "./app.css";
 import { useEffect } from "react";
@@ -27,8 +19,7 @@ import DisplayExercises from "./Components/DisplayExercises";
 import SignUp from "./Components/SignUp/Signup";
 import Exercise from "./Components/Exercise/Exercise";
 import AddExercise from "./Components/Exercise/AddExercise";
-import UserPanel from "./Components/UserPanel/UserPanel";
-
+import AddNutrient from "./Components/Nutrietns/AddNutrient"
 function App() {
   const [bgclr, setbgclr] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -85,9 +76,12 @@ function App() {
             element={[<Navbar />, <AdminPanel />, <Footer />]}
           />
           <Route path="/exercise" element={[<Exercise />]} />
-          <Route path="/addexercise" element={[<AddExercise />]} />
-          <Route path="/addnutrient" element={[<AddNutrient />]} />
-          <Route path="/userpanel" element={[<Navbar />,<UserPanel/>,<Footer />]}/>
+          <Route path="/addexercise" element={[<Navbar />,<AddExercise />,<Footer /> ]} />
+          <Route path="/addnutrient" element={[<Navbar />, <AddNutrient />, <Footer />]} />
+          <Route
+            path="/userpanel"
+            element={[<Navbar />, <UserPanel />, <Footer />]}
+          />
         </Routes>
       </BrowserRouter>
     </div>
