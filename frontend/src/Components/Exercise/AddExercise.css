@@ -1,11 +1,16 @@
- .ae-cntr {
+
+body{
+  width:100%;
+}
+.ae-cntr {
+    background-image: linear-gradient(#1d4350, #a43931);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 300px;
-    margin-left: 20px;
-    height: 100vh;
-    width:70%;
+    padding-left: 0px;
+    margin-left: 0px;
+    height: 140vh;
+    width: 100%;
   }
   
   .f-name
