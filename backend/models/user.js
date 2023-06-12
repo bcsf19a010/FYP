@@ -80,6 +80,7 @@ userSchema.statics.login = async function (email, password) {
   //   });
 
   const findUser = await bcrypt.compare(password, checkEmail.password);
+  console.log("\nfind user\n", findUser);
   if (!findUser) throw Error("Incorrect Password");
 
   return checkEmail;

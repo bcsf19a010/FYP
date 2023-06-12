@@ -41,7 +41,6 @@ const SignUp = (props) => {
             "Content-type": "application/json",
           },
         });
-        // const data = await response.json();
         if (response.ok) {
           navigate("/login");
         } else {

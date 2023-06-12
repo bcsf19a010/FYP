@@ -28,7 +28,7 @@ router.post("/login", async (req, resp) => {
     const token = createToken(result._id);
     resp.status(200).json({ email: result.email, token });
   } catch (error) {
-    resp.status(400).json({ error: error.message });
+    resp.status(200).json({ error: error.message });
   }
 });
 
@@ -56,10 +56,18 @@ router.get("/viewUsers", async (req, resp) => {
 
 router.post("/addExercise", async (req, resp) => {
   try {
-    let ex = new exercise(req.body);
-    console.log("\n\nexercise", ex);
-    let result = await ex.save();
-    resp.status(200).json(result);
+    const { file, name, descriptions, category } = req.body;
+    console.log("\n\n", req.body);
+    console.log("Received form data:");
+    console.log("File:", file);
+    console.log("Name:", name);
+    console.log("Descriptions:", descriptions);
+    console.log("Category:", category);
+    // console.log("\nadd exercise\n", req.body);
+    // let ex = new exercise(req.body);
+    // console.log("\n\nexercise", ex);
+    // let result = await ex.save();
+    resp.status(200).json({ result: "result" });
     //const {exReferece,bodyPart,name,description} = req.body;
   } catch (error) {
     resp.status(400).json({ error: error.message });
