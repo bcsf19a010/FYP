@@ -12,6 +12,7 @@ import Login from "./Components/Login_f/Login";
 import Clone from "./Components/Clone/Clone";
 import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
+import AddNutrient from "./Components/Nutrietns/AddNutrient"
 
 import AdminPanel from "./Components/AdminPanel/adminPanel";
 import "./app.css";
@@ -79,6 +80,7 @@ function App() {
           />
           <Route path="/exercise" element={[<Exercise />]} />
           <Route path="/addexercise" element={[<AddExercise />]} />
+          <Route path="/addnutrient" element={[<AddNutrient />]} />
           <Route path="/userpanel" element={[<Navbar />,<UserPanel/>,<Footer />]}/>
         </Routes>
       </BrowserRouter>
