@@ -8,7 +8,7 @@ export default function Home() {
       <div className="homeContainer">
         <div className="text">
           <span>Shape Your Body</span>
-          <h1>
+          <h1 className="myQoute">
             Be <font color="orangered">Strong</font> <br></br> <font color="orangered">training</font> Hard
           </h1>
         </div>

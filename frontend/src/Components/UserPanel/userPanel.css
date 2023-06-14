@@ -1,99 +1,94 @@
-
+ 
 .userpanel
 {
     margin: 0px;
     padding: 0px;
-    background-image: linear-gradient(#1d4350, #a43931);
+    background-image: url("../../../public/images/userpanel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:130vh;
+    height:120vh;
     width:100%;
+    justify-content: space-between;
 }
+
 .qoute
 {
     margin-top: 30px;
     font-family: "Muli", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
-
-
-
-
-ul{
+.ulForUP{
     display: flex;
     flex-direction: row;
 }
-li
+.ilForUP
 {
     list-style: none;
 }
-.trainer
+
+.mainConForUP
 {
-    background-image: url("../../../public/images/4.jpg");
-    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+    margin-bottom: 160px;
+}
+.mainConForUP img{
+    width: 200px;
+    height: 200px;
+}
+.exerciseForUP
+{
     background-size: cover;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    box-shadow: 10px 10px 10px 10px ;
-    height: 180px;
-    width: 90%;
+    background-size: cover;
+    text-align: center;
+    height:150px;
+    width:150px;
 }
-.eqoute
+.eqouteForUP
 {
     align-self: center;
 }
-.trainer,ul
+.ulForUP
 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.ebutton, a
+.ebuttonForUP
 {
     text-decoration: none;
-    color:rgb(68, 250, 123);
-}
+    color:black;
+} 
 
-/* .ebooks
+.ebooksForUP
 {
     margin-top: 30px;
     display: flex;
-    align-items:first baseline;
-    justify-content: center;
-    box-shadow: 10px 10px 10px 10px ;
-    height: 180px;
-    width: 90%;
-} */
+    text-align: center;
+}   
+
+
  .diet
 {
-    background-image: url("../../../public/images/2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    align-items:first baseline;
-    justify-content: center;
-    box-shadow: 10px 10px 10px 10px ;
-    height: 180px;
-    width: 90%;   
+    align-items: center;
 }  
 .dqoute
 {
     align-self: center;
 }
-.diet,ul
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .nImg
 {
     height: 60px;
     width: 60px;
-}
+}  
