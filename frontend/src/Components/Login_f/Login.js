@@ -33,8 +33,13 @@ export default function Login(props) {
 
   const navigate = useNavigate();
 
-  const loginRoute = () => {
-    navigate("/humanClone");
+  const loginRoute = (accountType) => {
+    console.log(accountType);
+    if (accountType === "User") {
+      navigate("/userpanel");
+    } else if (accountType === "Admin") {
+      navigate("/adminpanel");
+    }
   };
 
   const submit = async (e) => {
@@ -50,9 +55,10 @@ export default function Login(props) {
 
       const data = await response.json();
       if (response.ok) {
+        console.log(data);
         setEmail("");
         setPassword("");
-        loginRoute();
+        loginRoute(data.accountType);
       } else {
         setError(data.error);
         if (data.error === "Incorrect Password") {

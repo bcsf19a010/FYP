@@ -19,7 +19,7 @@ import DisplayExercises from "./Components/DisplayExercises";
 import SignUp from "./Components/SignUp/Signup";
 import Exercise from "./Components/Exercise/Exercise";
 import AddExercise from "./Components/Exercise/AddExercise";
-import AddNutrient from "./Components/Nutrietns/AddNutrient"
+import AddNutrient from "./Components/Nutrietns/AddNutrient";
 function App() {
   const [bgclr, setbgclr] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -75,9 +75,15 @@ function App() {
             path="/adminPanel"
             element={[<Navbar />, <AdminPanel />, <Footer />]}
           />
-          <Route path="/exercise" element={[<Exercise />]} />
-          <Route path="/addexercise" element={[<Navbar />,<AddExercise />,<Footer /> ]} />
-          <Route path="/addnutrient" element={[<Navbar />, <AddNutrient />, <Footer />]} />
+          <Route path="/viewExercise" element={[<Exercise />]} />
+          <Route
+            path="/addexercise"
+            element={[<Navbar />, <AddExercise />, <Footer />]}
+          />
+          <Route
+            path="/addnutrient"
+            element={[<Navbar />, <AddNutrient />, <Footer />]}
+          />
           <Route
             path="/userpanel"
             element={[<Navbar />, <UserPanel />, <Footer />]}
