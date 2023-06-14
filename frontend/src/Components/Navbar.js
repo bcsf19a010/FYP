@@ -44,6 +44,26 @@ export default function Navbar(props) {
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                style={{ color: "white", fontWeight: "bold", fontSize: "25px" }}
+                className="nav-link"
+                aria-current="page"
+                to="/login"
+              >
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                style={{ color: "white", fontWeight: "bold", fontSize: "25px" }}
+                className="nav-link"
+                aria-current="page"
+                to="/humanClone"
+              >
+                Human Clone
+              </Link>
+            </li>
           </ul>
           <i className="mx-3">
             <strong>{props.username}</strong>
