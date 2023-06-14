@@ -34,6 +34,7 @@ const NutrientForm = () => {
   return (
     <div className="upContainer">
       <form className="nutrient-form" onSubmit={handleSubmit}>
+        <h3>Add Nutrients</h3>
         {nutrients.map((nutrient, index) => (
           <div className="nutrient-field" key={index}>
             <label htmlFor={`name${index}`}>Name:</label>
