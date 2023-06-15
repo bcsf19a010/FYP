@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="col-lg-4">
               <div className="fs-about">
                 <div className="fa-logo">
-                  <a className="footer-link" href="#">
+                  <a className="footer-link" href="/">
                     <img src="/images/logo.png" alt="" />
                   </a>
                 </div>
@@ -35,16 +35,28 @@ export default function Footer() {
                   >
                     <FontAwesomeIcon icon={faFacebookF} />
                   </a>
-                  <a className="footer-link mr-3" href="#">
+                  <a
+                    className="footer-link mr-3"
+                    href="https://www.twitter.com"
+                  >
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
-                  <a className="footer-link mr-3" href="#">
+                  <a
+                    className="footer-link mr-3"
+                    href="https://www.youtube.com"
+                  >
                     <FontAwesomeIcon icon={faYoutube} />
                   </a>
-                  <a className="footer-link mr-3" href="#">
+                  <a
+                    className="footer-link mr-3"
+                    href="https://www.instagram.com"
+                  >
                     <FontAwesomeIcon icon={faInstagram} />
                   </a>
-                  <a className="footer-link mr-3" href="#">
+                  <a
+                    className="footer-link mr-3"
+                    href="https://www.whatsapp.com"
+                  >
                     <FontAwesomeIcon icon={faWhatsapp} />
                   </a>
                 </div>
@@ -55,12 +67,12 @@ export default function Footer() {
                 <h4>Useful links</h4>
                 <ul>
                   <li>
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/about">
                       About
                     </a>
                   </li>
                   <li>
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/about">
                       Contact
                     </a>
                   </li>
@@ -72,12 +84,12 @@ export default function Footer() {
                 <h4>Support</h4>
                 <ul>
                   <li>
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/login">
                       Login
                     </a>
                   </li>
                   <li>
-                    <a className="footer-link" href="#">
+                    <a className="footer-link" href="/signup">
                       signup
                     </a>
                   </li>

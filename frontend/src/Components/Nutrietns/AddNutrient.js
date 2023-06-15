@@ -1,80 +1,181 @@
-import React, { useState } from 'react';
-import './AddNutrient.css'; // Import the CSS file for styling
+import React, { useState, useEffect } from "react";
 
-const NutrientForm = () => {
-  const [nutrients, setNutrients] = useState([{ name: '', quantity: '' }]);
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+} from "mdb-react-ui-kit";
 
-  const handleChange = (index, e) => {
-    const { name, value } = e.target;
-    const updatedNutrients = [...nutrients];
-    updatedNutrients[index][name] = value;
-    setNutrients(updatedNutrients);
+const AddNutrients = (props) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    calories: "",
+    protein: "",
+    carbohydrates: "",
+    sugar: "",
+    fiber: "",
+    vitamins: [""], // Initial vitamins array with an empty value
+  });
+  useEffect(() => {
+    // This function will be called when the component mounts
+    console.log("in enter");
+    props.setbgclr(false);
+    return () => {
+      // This function will be called when the component unmounts
+      props.setbgclr(true);
+      console.log("in return");
+    };
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleAddField = () => {
-    setNutrients([...nutrients, { name: '', quantity: '' }]);
+  const handleVitaminChange = (index, e) => {
+    const updatedVitamins = [...formData.vitamins];
+    updatedVitamins[index] = e.target.value;
+    setFormData({
+      ...formData,
+      vitamins: updatedVitamins,
+    });
   };
 
-  const handleRemoveField = (index) => {
-    const updatedNutrients = [...nutrients];
-    updatedNutrients.splice(index, 1);
-    setNutrients(updatedNutrients);
+  const handleAddVitamin = () => {
+    setFormData({
+      ...formData,
+      vitamins: [...formData.vitamins, ""], // Add a new empty value to the vitamins array
+    });
+  };
+
+  const handleRemoveVitamin = (index) => {
+    const updatedVitamins = [...formData.vitamins];
+    updatedVitamins.splice(index, 1); // Remove the vitamin at the specified index
+    setFormData({
+      ...formData,
+      vitamins: updatedVitamins,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform additional validation here before submitting the form
-    // Once validated, you can send the data to an API or handle it as per your requirements
-    console.log('Submitted:', nutrients);
+    console.log(formData);
 
-    // Reset the form fields
-    setNutrients([{ name: '', quantity: '' }]);
+    // Make API request to MongoDB API
+    // fetch('https://your-mongodb-api-url.com/your-endpoint', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(formData)
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     // Handle the response data
+    //     console.log(data);
+    //   })
+    //   .catch(error => {
+    //     // Handle any errors
+    //     console.error(error);
+    //   });
+
+    // Reset form fields
+    setFormData({
+      name: "",
+      calories: "",
+      protein: "",
+      carbohydrates: "",
+      sugar: "",
+      fiber: "",
+      vitamins: [""],
+    });
   };
 
   return (
-    <div className="upContainer">
-      <form className="nutrient-form" onSubmit={handleSubmit}>
-        <h3>Add Nutrients</h3>
-        {nutrients.map((nutrient, index) => (
-          <div className="nutrient-field" key={index}>
-            <label htmlFor={`name${index}`}>Name:</label>
-            <input
-              type="text"
-              id={`name${index}`}
+    <MDBContainer fluid className="gradient-bg">
+      <MDBRow className="justify-content-center">
+        <MDBCol md="6">
+          <form onSubmit={handleSubmit} className="m-4">
+            <MDBInput
+              label="Name"
+              id="name"
               name="name"
-              value={nutrient.name}
-              onChange={(e) => handleChange(index, e)}
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <MDBInput
+              label="Calories"
+              id="calories"
+              name="calories"
+              value={formData.calories}
+              onChange={handleChange}
+            />
+            <MDBInput
+              label="Protein"
+              id="protein"
+              name="protein"
+              value={formData.protein}
+              onChange={handleChange}
+            />
+            <MDBInput
+              label="Carbohydrates"
+              id="carbohydrates"
+              name="carbohydrates"
+              value={formData.carbohydrates}
+              onChange={handleChange}
+            />
+            <MDBInput
+              label="Sugar"
+              id="sugar"
+              name="sugar"
+              value={formData.sugar}
+              onChange={handleChange}
+            />
+            <MDBInput
+              label="Fiber"
+              id="fiber"
+              name="fiber"
+              value={formData.fiber}
+              onChange={handleChange}
             />
 
-            <label htmlFor={`quantity${index}`}>Quantity:</label>
-            <input
-              type="text"
-              id={`quantity${index}`}
-              name="quantity"
-              value={nutrient.quantity}
-              onChange={(e) => handleChange(index, e)}
-            />
+            {formData.vitamins.map((vitamin, index) => (
+              <div key={index}>
+                <MDBInput
+                  label={`Vitamin ${index + 1}`}
+                  name={`vitamin${index}`}
+                  value={vitamin}
+                  onChange={(e) => handleVitaminChange(index, e)}
+                />
+                {index === formData.vitamins.length - 1 && (
+                  <div>
+                    <MDBBtn type="button" onClick={handleAddVitamin}>
+                      +
+                    </MDBBtn>
+                    {formData.vitamins.length > 1 && (
+                      <MDBBtn
+                        style={{ margin: "10px" }}
+                        type="button"
+                        onClick={() => handleRemoveVitamin(index)}
+                      >
+                        -
+                      </MDBBtn>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
 
-            <button
-              type="button"
-              className="remove-button"
-              onClick={() => handleRemoveField(index)}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
-
-        <button type="button" className="add-button" onClick={handleAddField}>
-          Add Nutrient
-        </button>
-
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
-      </form>
-    </div>
+            <MDBBtn type="submit">Submit</MDBBtn>
+          </form>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 };
 
-export default NutrientForm;
+export default AddNutrients;

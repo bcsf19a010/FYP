@@ -13,13 +13,18 @@ import Footer from "./Components/footer";
 import Home from "./Components/Home/Home";
 import UserPanel from "./Components/UserPanel/UserPanel";
 import AdminPanel from "./Components/AdminPanel/adminPanel";
+import Ebooks from "./Components/Ebooks/EbookComponent";
+import AddNutrients from "./Components/Nutrietns/addNutrient";
 import "./app.css";
 import { useEffect } from "react";
 import DisplayExercises from "./Components/DisplayExercises";
+import Nutrients from "./Components/Nutrietns/nutrientComponent";
 import SignUp from "./Components/SignUp/Signup";
 import Exercise from "./Components/Exercise/Exercise";
 import AddExercise from "./Components/Exercise/AddExercise";
-import AddNutrient from "./Components/Nutrietns/AddNutrient";
+import CalNutrient from "./Components/Nutrietns/CalNutrient";
+import EbookComponent from "./Components/Ebooks/viewEbooks";
+import AddEbook from "./Components/Ebooks/AddEbook";
 function App() {
   const [bgclr, setbgclr] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -73,20 +78,52 @@ function App() {
 
           <Route
             path="/adminPanel"
-            element={[<Navbar />, <AdminPanel />, <Footer />]}
+            element={[
+              <Navbar />,
+              <AdminPanel setbgclr={setbgclr} />,
+              <Footer />,
+            ]}
           />
-          <Route path="/viewExercise" element={[<Exercise />]} />
+          <Route
+            path="/viewExercise"
+            element={[<Navbar />, <Exercise />, <Footer />]}
+          />
           <Route
             path="/addexercise"
             element={[<Navbar />, <AddExercise />, <Footer />]}
           />
           <Route
-            path="/addnutrient"
-            element={[<Navbar />, <AddNutrient />, <Footer />]}
+            path="/calNutrient"
+            element={[<Navbar />, <CalNutrient />, <Footer />]}
           />
           <Route
             path="/userpanel"
             element={[<Navbar />, <UserPanel />, <Footer />]}
+          />
+          <Route
+            path="/viewEbooks"
+            element={[<Navbar />, <EbookComponent />, <Footer />]}
+          />
+          <Route
+            path="/addEbook"
+            element={[<Navbar />, <AddEbook />, <Footer />]}
+          />
+          {/* <Route
+            path="/addNutrient"
+            element={[<Navbar />, <AddNutrients />, <Footer />]}
+          /> */}
+          <Route path="/ebook" element={[<Navbar />, <Ebooks />, <Footer />]} />
+          <Route
+            path="/nutrient"
+            element={[<Navbar />, <Nutrients />, <Footer />]}
+          />
+          <Route
+            path="/addNutrient"
+            element={[
+              <Navbar />,
+              <AddNutrients setbgclr={setbgclr} />,
+              <Footer />,
+            ]}
           />
         </Routes>
       </BrowserRouter>

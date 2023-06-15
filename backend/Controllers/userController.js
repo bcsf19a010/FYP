@@ -82,25 +82,36 @@ router.get("/getEbooks", async (req, resp) => {
   }
 });
 
-router.get("/calculateNutrients", async (req, resp) => {
+router.post("/calculateNutrients", async (req, resp) => {
   //console.log(req.body);
-  var data = req.body;
-  //console.log(data.length);
-  let resultNutrients = new diet();
-  resultNutrients.name = "result";
-  // let r1 = await diet.find({ name: data[0].name });
-  // console.log(r1);
-  for (let i = 0; i < data.length; i++) {
-    let r1 = await diet.find({ name: data[i].name });
-    console.log(r1);
-    resultNutrients.calories += r1.calories * data[i].quantity;
-    resultNutrients.protein += r1.protein * data[i].quantity;
-    resultNutrients.carbohydrates += r1.carbohydrates * data[i].quantity;
-    resultNutrients.fiber += r1.fiber * data[i].quantity;
-    resultNutrients.vitamins = resultNutrients.vitamins.concat(r1.vitamins);
+  //console.log(req.body.nutrients[0]);
+  const data = req.body.nutrients;
+  let calories = 0,
+    protien = 0,
+    carbohydrates = 0,
+    sugar = 0,
+    fiber = 0,
+    vitamins = [];
+  for (let i of data) {
+    let food = await diet.find({ name: i.name });
+    calories += food[0].calories * i.quantity;
+    protien += food[0].protein * i.quantity;
+    carbohydrates += food[0].carbohydrates * i.quantity;
+    sugar += food[0].sugar * i.quantity;
+    fiber += food[0].fiber * i.quantity;
+    vitamins = food[0].vitamins.concat(vitamins);
   }
-  console.log(resultNutrients);
+  // const result = new diet({
+  //   calories,
+  //   protien,
+  //   carbohydrates,
+  //   sugar,
+  //   fiber,
+  //   vitamins,
+  // });
 
-  resp.status(200).json(resultNutrients);
+  resp
+    .status(200)
+    .json({ calories, protien, carbohydrates, sugar, fiber, vitamins });
 });
 module.exports = router;

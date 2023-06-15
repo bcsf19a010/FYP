@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ebookSchema = new mongoose.Schema({
-  ebReferece: {
+  ebReference: {
     type: String,
     require: true,
     unique: true,

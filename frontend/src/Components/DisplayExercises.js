@@ -20,10 +20,24 @@ export default function DisplayExercises() {
   }, []);
 
   return (
-    <div>
-      {exercises?.map((ex) => {
-        return <VideoPlayer exercise={ex} />;
-      })}
-    </div>
+    <>
+      {exercises.length > 1 ? (
+        <div>
+          {exercises?.map((ex) => {
+            return <VideoPlayer exercise={ex} />;
+          })}
+        </div>
+      ) : (
+        <h5
+          style={{
+            textAlign: "center",
+            marginTop: "100px",
+            marginBottom: "100px",
+          }}
+        >
+          No exercise found
+        </h5>
+      )}
+    </>
   );
 }

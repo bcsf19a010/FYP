@@ -16,8 +16,8 @@ export default function Exercise() {
       try {
         const response = await fetch("/admin/getExercises");
         const jsonData = await response.json();
+        setData(jsonData);
         console.log(jsonData);
-        setData(jsonData); // Update state with the fetched data
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -53,14 +53,19 @@ export default function Exercise() {
 
   return (
     <div className="Exercise">
-      <p>{message}</p>
-      <MDBTable className="m-4">
+      <p style={{ textAlign: "center" }}>{message}</p>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <a href="/addexercise">
+          <MDBBtn className="me-1" rounded size="sm">
+            Add
+          </MDBBtn>
+        </a>
+      </div>
+      <MDBTable className="m-4" style={{ width: "80%" }}>
         <MDBTableHead>
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Title</th>
-            <th scope="col">Add</th>
-            <th scope="col">Update</th>
             <th scope="col">Delete</th>
           </tr>
         </MDBTableHead>
@@ -84,11 +89,6 @@ export default function Exercise() {
                 </p>
               </td>
               <td>
-                <MDBBtn className="me-1" rounded size="sm">
-                  Add
-                </MDBBtn>
-              </td>
-              <td>
                 <MDBBtn
                   id={item._id}
                   className="me-1"
@@ -100,11 +100,6 @@ export default function Exercise() {
                 >
                   {/* {isDeleting ? 'Deleting...' : 'Delete'} */}
                   Delete
-                </MDBBtn>
-              </td>
-              <td>
-                <MDBBtn className="me-1" color="warning" rounded size="sm">
-                  UPdate
                 </MDBBtn>
               </td>
             </tr>
