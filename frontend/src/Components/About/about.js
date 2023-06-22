@@ -8,9 +8,9 @@ export default function About() {
       <div className="hm">
         <div className="cntnr">
           <div className="txt">
-            <h1>
+            <p className="txt">
               <font color="orangered">About</font> Us
-            </h1>
+            </p>
           </div>
         </div>
       </div>

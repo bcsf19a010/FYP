@@ -94,12 +94,14 @@ router.post("/calculateNutrients", async (req, resp) => {
     vitamins = [];
   for (let i of data) {
     let food = await diet.find({ name: i.name });
-    calories += food[0].calories * i.quantity;
-    protien += food[0].protein * i.quantity;
-    carbohydrates += food[0].carbohydrates * i.quantity;
-    sugar += food[0].sugar * i.quantity;
-    fiber += food[0].fiber * i.quantity;
-    vitamins = food[0].vitamins.concat(vitamins);
+    if (food.length > 0) {
+      calories += food[0].calories * i.quantity;
+      protien += food[0].protein * i.quantity;
+      carbohydrates += food[0].carbohydrates * i.quantity;
+      sugar += food[0].sugar * i.quantity;
+      fiber += food[0].fiber * i.quantity;
+      vitamins = food[0].vitamins.concat(vitamins);
+    }
   }
   // const result = new diet({
   //   calories,

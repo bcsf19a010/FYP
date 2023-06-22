@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddExercise.css";
 
 const AddExercise = () => {
@@ -6,6 +6,11 @@ const AddExercise = () => {
   const [name, setName] = useState("");
   const [descriptions, setDescriptions] = useState([{ value: "" }]);
   const [category, setCategory] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    console.log("category is in effect", category);
+  }, [category]);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -48,8 +53,7 @@ const AddExercise = () => {
       JSON.stringify(descriptions.map((desc) => desc.value))
     );
     formData.append("category", category);
-
-    console.log("\nformdata\n", formData);
+    formData.append("folderName", category);
 
     // await fetch("http://localhost:8000/admin/addExercise", {
     //   method: "POST",
@@ -64,16 +68,23 @@ const AddExercise = () => {
       // },
     });
     if (response.ok) {
-      console.log("Exercise added successfully!");
+      setMessage("Exercise added successfully!");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
       // Perform any additional actions or handle the response as needed
     } else {
-      console.error("Failed to add exercise");
+      setMessage("Failed to add exercise");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
       // Handle the error or show an appropriate message
     }
   };
 
   return (
     <div className="ae-cntr">
+      <h5 style={{ textAlign: "center" }}>{message}</h5>
       <form className="ae-container" onSubmit={handleSubmit}>
         <h2 class="f-name">Add Exercise</h2>
         <div>

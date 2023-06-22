@@ -1,4 +1,102 @@
- 
+.up-home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                      url("../../../public/images/userPanel-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+.up-cntnr
+{
+  padding-top: 100px;
+  margin-left: 80px;
+  margin-right: 150px;
+  font-family: "Muli", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  flex-wrap: wrap;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.up-txt
+{
+  color: white;
+  align-self:last baseline;
+  justify-content:center;
+  padding: 0px;
+  width:auto;
+  margin:0px;
+  font-size: 75px !important;
+  font-weight: 600 !important;
+}
+
+.up-card-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  .up-cntnr{
+    display:flex;
+    justify-content: Center;
+  }
+  
+  .up-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 33%; /* Adjust the width as needed */
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as desired */
+    border-radius: 100px;
+    padding: 50px 10px;
+  }
+  
+  .up-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nImg {
+    width: 100px; /* Adjust the width as desired */
+    height: 100px; /* Adjust the height as desired */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .up-card h1 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white !important;
+    margin-top: 10px; /* Adjust the margin as needed */
+    font-size: 20px; /* Adjust the font size as needed */
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .up-card h1:hover {
+    background-color: red;
+  }
+  
+  
+  
+  
+    
+
+
+
+/*  
 .userpanel
 {
     margin: 0px;
@@ -91,4 +189,4 @@
 {
     height: 60px;
     width: 60px;
-}  
+}   */

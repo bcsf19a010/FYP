@@ -3,12 +3,15 @@ const session = require("express-session");
 const router = express.Router();
 const owner = require("../models/GymOwner");
 const gym = require("../models/GymModel");
-const user = require("../models/user");
+const User = require("../models/user");
 const trainer = require("../models/Trainer");
 const attendance = require("../models/Attendance");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 const employee = require("../models/Employee");
+const multer = require("multer");
+
+const upload = multer({});
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, "SECRETKey12345678", { expiresIn: "3d" });
@@ -17,7 +20,7 @@ const createToken = (_id) => {
 router.post("/signup", async (req, resp) => {
   try {
     const { username, email, password, phoneNo, address } = req.body;
-    const checkUser = await user.findOne({ email });
+    const checkUser = await User.findOne({ email });
     if (checkUser) {
       resp.status(400).json({ error: "Email already exist" });
     } else {
@@ -29,7 +32,9 @@ router.post("/signup", async (req, resp) => {
         address
       );
       const token = createToken(gymOwner._id);
-      resp.status(200).json({ username: gymOwner.username, token });
+      resp
+        .status(200)
+        .json({ username: gymOwner.username, ownerId: gymOwner._id, token });
     }
   } catch (error) {
     resp.status(400).json({ error: error.message });
@@ -42,41 +47,62 @@ router.post("/login", async (req, resp) => {
     const gymOwner = await owner.login(email, password);
     req.session.owner_id = gymOwner._id;
     const token = createToken(gymOwner._id);
-    resp.status(200).json({ username: gymOwner.username, token });
-  } catch (error) {
-    resp.status(200).json({ error: error.message });
-  }
-});
-
-//User Controllers
-
-router.post("/addUser", async (req, resp) => {
-  try {
-    const { username, email, password, phoneNo, address } = req.body;
-    const Owner = req.session.owner_id;
-    let result = await user.signup(
-      username,
-      email,
-      password,
-      phoneNo,
-      address,
-      Owner
-    );
-    //let User = new user(req.body);
-    //User.owner = req.session.owner_id;
-    //const result = await User.save();
-    resp.status(200).json({ result });
+    resp.status(200).json({
+      username: gymOwner.username,
+      token,
+      accountType: "Owner",
+      ownerId: gymOwner._id,
+    });
   } catch (error) {
     resp.status(400).json({ error: error.message });
   }
 });
 
-router.get("/viewUser", async (req, resp) => {
+//User Controllers
+
+// router.post("/addUser", async (req, resp) => {
+//   try {
+//     const { username, email, password, phoneNo, address } = req.body;
+//     const Owner = req.session.owner_id;
+//     let result = await user.signup(
+//       username,
+//       email,
+//       password,
+//       phoneNo,
+//       address,
+//       Owner
+//     );
+//     resp.status(200).json({ result });
+//   } catch (error) {
+//     resp.status(400).json({ error: error.message });
+//   }
+// });
+
+router.post("/addUser", upload.none(), async (req, resp) => {
   try {
-    let result = await user.find({
-      owner: req.session.owner_id,
+    const { username, email, password, phoneNo, address, owner } = req.body;
+    const user = await User.signup(
+      username,
+      email,
+      password,
+      phoneNo,
+      address,
+      owner
+    );
+    // const result = await user.save();
+    resp.status(200).json({ user });
+  } catch (error) {
+    resp.status(400).json({ error: error.message });
+  }
+});
+
+router.get("/viewUser/:owner", async (req, resp) => {
+  try {
+    const { owner } = req.params;
+    let result = await User.find({
+      owner: owner,
     });
-    if (result) {
+    if (result.length > 0) {
       resp.status(200).json({ result });
     } else {
       resp.status(500).json({ error: "Error retrieving data" });
@@ -89,8 +115,8 @@ router.get("/viewUser", async (req, resp) => {
 router.delete("/deleteUser/:id", async (req, resp) => {
   const { id } = req.params;
   try {
-    const result = await user.findByIdAndDelete({ _id: id });
-    return resp.status(200).json(result);
+    const result = await User.findByIdAndDelete({ _id: id });
+    return resp.status(200).json({ result });
   } catch (error) {
     return resp.status(400).json({ error: "something went wrong" });
   }
@@ -109,10 +135,10 @@ router.post("/markAttendance", async (req, resp) => {
 
 //Trainer Controllers
 
-router.post("/addTrainer", async (req, resp) => {
+router.post("/addTrainer", upload.none(), async (req, resp) => {
   try {
     let Trainer = new trainer(req.body);
-    Trainer.owner = req.session.owner_id;
+    console.log(Trainer);
     const result = await Trainer.save();
     resp.status(200).json({ result });
   } catch (error) {
@@ -130,12 +156,15 @@ router.delete("/deleteTrainer/:id", async (req, resp) => {
   }
 });
 
-router.get("/viewTrainer", async (req, resp) => {
+router.get("/viewTrainer/:owner", async (req, resp) => {
   try {
+    const { owner } = req.params;
+    console.log("owner is", owner);
     let result = await trainer.find({
-      owner: req.session.owner_id,
+      owner: owner,
     });
-    if (result) {
+    console.log("result is", result);
+    if (result.length > 0) {
       resp.status(200).json({ result });
     } else {
       resp.status(500).json({ error: "Error retrieving data" });
@@ -185,11 +214,17 @@ router.get("/viewEmployee", async (req, resp) => {
 
 router.post("/addgym", async (req, resp) => {
   try {
-    let g = new gym(req.body);
-    g.owner = req.session.owner_id;
+    const { gymName, gymAddress, ownerId } = req.body;
+
+    const g = new gym({
+      gymName: gymName,
+      address: gymAddress,
+      owner: ownerId,
+    });
     let result = await g.save();
     resp.status(200).json({ result });
   } catch (error) {
+    console.log("in error");
     resp.status(400).json({ error: error.message });
   }
 });

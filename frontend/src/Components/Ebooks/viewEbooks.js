@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./viewEbook.css";
 
 const EbookComponent = () => {
   const [pdfFiles, setPdfFiles] = useState([]);
@@ -18,21 +19,15 @@ const EbookComponent = () => {
     fetchPdfFiles();
   }, []);
 
-  const handleDownload = (url) => {
-    console.log("url is ", url);
-    window.open(url, "_blank");
-  };
-
   return (
-    <div>
-      <h1>PDF Files</h1>
+    <div className="pdf-files-container">
+      <h1 style={{ fontSize: "50px", fontWeight: "1000", margin: "25px 0px" }}>
+        E-Books
+      </h1>
       <ul>
         {pdfFiles.map((pdfFile, index) => (
           <li key={index}>
-            <p>{pdfFile.description}</p>
-            {/* <button onClick={() => handleDownload(pdfFile.ebReference)}>
-              Download
-            </button> */}
+            <h2>{pdfFile.description}</h2>
             <embed
               src={"/Ebooks/" + pdfFile.ebReference}
               type="application/pdf"
@@ -43,6 +38,7 @@ const EbookComponent = () => {
               onClick={() =>
                 window.open("/Ebooks/" + pdfFile.ebReference, "_blank")
               }
+              style={{ width: "100%" }}
             >
               Open PDF
             </button>

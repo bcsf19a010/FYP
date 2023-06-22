@@ -32,9 +32,9 @@ router.post("/login", async (req, resp) => {
     console.log(result);
     req.session.admin_id = result._id;
     const token = createToken(result._id);
-    resp.status(200).json({ email: result.email, token });
+    resp.status(200).json({ username: "Admin", token });
   } catch (error) {
-    resp.status(200).json({ error: error.message });
+    resp.status(400).json({ error: error.message });
   }
 });
 
@@ -64,9 +64,10 @@ router.post("/addExercise", upload.single("file"), async (req, resp) => {
   try {
     var { name, descriptions, category } = req.body;
     const file = req.file;
+    console.log("category is ", category);
 
     // Initialize multer upload
-    const storage = multer.diskStorage({
+    const myStorage = multer.diskStorage({
       destination: function (req, file, cb) {
         // Set the destination folder based on the category
         cb(
@@ -79,7 +80,7 @@ router.post("/addExercise", upload.single("file"), async (req, resp) => {
       },
     });
 
-    upload.storage = storage;
+    upload.storage = myStorage;
 
     const description = descriptions.split(",");
 
@@ -89,13 +90,16 @@ router.post("/addExercise", upload.single("file"), async (req, resp) => {
       name: name,
       description: description,
     });
-    const result = await ex.save();
+    console.log(ex);
+
     const filePath = path.join(
       __dirname,
       `../../frontend/public/videos/${category}`,
       file.originalname
     );
-
+    console.log(filePath);
+    const result = await ex.save();
+    console.log("result is ", result);
     await file.mv(filePath);
 
     resp.status(200).json({ result });
@@ -126,6 +130,23 @@ router.delete("/deleteExercise/:id", async (req, resp) => {
 });
 
 //************************* Nutrients Routes ********************** */
+
+router.post("/addNutrients", upload.none(), async (req, resp) => {
+  const { name, calories, protein, carbohydrates, sugar, fiber, vitamins } =
+    req.body;
+  const n = new nutrients({
+    name: name,
+    calories: calories,
+    protein: protein,
+    carbohydrates: carbohydrates,
+    sugar: sugar,
+    fiber: fiber,
+    vitamins: vitamins,
+  });
+  let result = await n.save();
+  if (result) return resp.status(200).json({ result });
+  else return resp.status(400).json({ error: "Something went wrong" });
+});
 
 router.get("/getNutrients", async (req, resp) => {
   try {
@@ -173,9 +194,10 @@ router.post("/addEbook", upload.single("file"), async (req, resp) => {
     const result = await eb.save();
     const filePath = path.join(
       __dirname,
-      `../../frontend/public/Ebooks}`,
+      `../../frontend/public/Ebooks`,
       file.originalname
     );
+    console.log(result, filePath);
 
     await file.mv(filePath);
 

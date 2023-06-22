@@ -9,6 +9,7 @@ export default function Navbar(props) {
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("type");
+    localStorage.removeItem("ownerId");
     navigate("/");
   };
 
@@ -43,12 +44,16 @@ export default function Navbar(props) {
                   style={{
                     color: "white",
                     fontWeight: "bold",
-                    fontSize: "25px",
+                    fontSize: "20px",
                   }}
                   className="nav-link"
                   aria-current="page"
                   to={
-                    type && type.type === "user" ? "/userpanel" : "/adminpanel"
+                    type && type.type === "user"
+                      ? "/userpanel"
+                      : type.type === "owner"
+                      ? "/ownerpanel"
+                      : "/adminpanel"
                   }
                 >
                   Home
@@ -59,7 +64,7 @@ export default function Navbar(props) {
                   style={{
                     color: "white",
                     fontWeight: "bold",
-                    fontSize: "25px",
+                    fontSize: "20px",
                   }}
                   className="nav-link"
                   aria-current="page"
@@ -73,7 +78,7 @@ export default function Navbar(props) {
                   style={{
                     color: "white",
                     fontWeight: "bold",
-                    fontSize: "25px",
+                    fontSize: "20px",
                   }}
                   className="nav-link"
                   aria-current="page"
@@ -87,7 +92,7 @@ export default function Navbar(props) {
                   style={{
                     color: "white",
                     fontWeight: "bold",
-                    fontSize: "25px",
+                    fontSize: "20px",
                   }}
                   className="nav-link"
                   aria-current="page"

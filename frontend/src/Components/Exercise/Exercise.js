@@ -1,48 +1,40 @@
-// import React from 'react';
-
-import React from "react";
-//import "./Exercise.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 
 export default function Exercise() {
   const [data, setData] = useState([]);
   const [message, setMessage] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    // Function to fetch data from the API
     const fetchData = async () => {
       try {
         const response = await fetch("/admin/getExercises");
         const jsonData = await response.json();
         setData(jsonData);
-        console.log(jsonData);
+        console.log("exercise json data", jsonData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchData(); // Call the fetch data function when the component mounts
+    fetchData();
   }, []);
-  // delete data.....
 
-  const [isDeleting, setIsDeleting] = useState(false);
-  const handleDelete = async (event) => {
+  const handleDelete = async (e) => {
     try {
-      // Make an API call to delete the data
-      console.log("id", event.target.id);
-      await axios.delete(`/admin/deleteExercise/${event.target.id}`);
-      // Perform any additional actions or update the state as needed
+      console.log("id", e.target.id);
+      await axios.delete(`/admin/deleteExercise/${e.target.id}`);
+
       setIsDeleting(true);
       setMessage("Data deleted successfully!");
-      // Fetch the updated data from the API
+
       const response = await fetch("/admin/getExercises");
       const jsonData = await response.json();
-      setData(jsonData); // Update state with the fetched data
+      setData(jsonData);
     } catch (error) {
       console.error("Error deleting data:", error);
-      // Handle error condition
     } finally {
       setIsDeleting(false);
       setTimeout(function () {
@@ -52,7 +44,7 @@ export default function Exercise() {
   };
 
   return (
-    <div className="Exercise">
+    <div>
       <p style={{ textAlign: "center" }}>{message}</p>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <a href="/addexercise">
@@ -71,21 +63,19 @@ export default function Exercise() {
         </MDBTableHead>
         <MDBTableBody>
           {data.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td>
                 <div className="d-flex align-items-center">
                   <div className="ms-3">
-                    <p className="fw-bold mb-1">
-                      {" "}
-                      <div key={item._id}>{item.name}</div>
+                    <p key={item._id} className="fw-bold mb-1">
+                      {item.name}
                     </p>
                   </div>
                 </div>
               </td>
               <td>
-                <p className="fw-normal mb-1">
-                  {" "}
-                  <div key={item._id}>{item.bodyPart}</div>
+                <p key={item._id} className="fw-normal mb-1">
+                  {item.bodyPart}
                 </p>
               </td>
               <td>
@@ -98,7 +88,6 @@ export default function Exercise() {
                   onClick={handleDelete}
                   disabled={isDeleting}
                 >
-                  {/* {isDeleting ? 'Deleting...' : 'Delete'} */}
                   Delete
                 </MDBBtn>
               </td>
@@ -106,7 +95,6 @@ export default function Exercise() {
           ))}
         </MDBTableBody>
       </MDBTable>
-      <div className="Exercise"></div>
     </div>
   );
 }

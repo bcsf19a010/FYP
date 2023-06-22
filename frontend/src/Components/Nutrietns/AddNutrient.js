@@ -61,29 +61,44 @@ const AddNutrients = (props) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-
-    // Make API request to MongoDB API
-    // fetch('https://your-mongodb-api-url.com/your-endpoint', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(formData)
+    const fd = new FormData();
+    fd.append("name", formData.name);
+    fd.append("calories", formData.calories);
+    fd.append("protein", formData.protein);
+    fd.append("carbohydrates", formData.carbohydrates);
+    fd.append("sugar", formData.sugar);
+    fd.append("fiber", formData.fiber);
+    fd.append(
+      "vitamins",
+      JSON.stringify(formData.vitamins.map((desc) => desc))
+    );
+    console.log(
+      formData.calories,
+      formData.name,
+      formData.protein,
+      formData.vitamins
+    );
+    // await fetch("http://localhost:8000/admin/addExercise", {
+    //   method: "POST",
+    //   body: formData,
     // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     // Handle the response data
-    //     console.log(data);
-    //   })
-    //   .catch(error => {
-    //     // Handle any errors
-    //     console.error(error);
-    //   });
-
-    // Reset form fields
+    //   .then((response) => {
+    const response = await fetch("/admin/addNutrients", {
+      method: "POST",
+      body: fd,
+      // headers: {
+      //   "Content-Type": "application/json", // Corrected header
+      // },
+    });
+    if (response.ok) {
+      //const data = await response.json();
+      console.log("Exercise added successfully!");
+      // Perform any additional actions or handle the response as needed
+    } else {
+      console.error("Failed to add exercise");
+    }
     setFormData({
       name: "",
       calories: "",
@@ -91,15 +106,25 @@ const AddNutrients = (props) => {
       carbohydrates: "",
       sugar: "",
       fiber: "",
-      vitamins: [""],
+      vitamins: [""], // Initial vitamins array with an empty value
     });
   };
 
   return (
-    <MDBContainer fluid className="gradient-bg">
+    <MDBContainer fluid className="gradient-bg" style={{ marginTop: "100px" }}>
       <MDBRow className="justify-content-center">
         <MDBCol md="6">
-          <form onSubmit={handleSubmit} className="m-4">
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              border: "2px solid black",
+              backgroundColor: "white",
+              padding: "20px",
+            }}
+            className="m-4"
+          >
+            <h1 style={{ textAlign: "center" }}>Add Nutrient</h1>
+
             <MDBInput
               label="Name"
               id="name"
@@ -170,7 +195,9 @@ const AddNutrients = (props) => {
               </div>
             ))}
 
-            <MDBBtn type="submit">Submit</MDBBtn>
+            <MDBBtn type="submit" style={{ marginTop: "20px", width: "100%" }}>
+              Submit
+            </MDBBtn>
           </form>
         </MDBCol>
       </MDBRow>

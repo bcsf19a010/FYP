@@ -65,7 +65,12 @@ const SignUp = (props) => {
           },
         });
         if (response.ok) {
-          navigate("/login");
+          const data = await response.json();
+          localStorage.setItem(
+            "ownerId",
+            JSON.stringify({ ownerId: data.ownerId })
+          );
+          navigate("/addGym");
         } else {
           const data = await response.json();
           setError(data.error);
@@ -92,7 +97,11 @@ const SignUp = (props) => {
         <h4>{error}</h4>
         <MDBRow center>
           <MDBCol md="6" className="fcontainer">
-            <form onSubmit={handleSubmit} className="signup-form">
+            <form
+              style={{ padding: "25px" }}
+              onSubmit={handleSubmit}
+              className="signup-form"
+            >
               <div className="signup-image">
                 <div>
                   <MDBIcon

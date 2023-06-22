@@ -34,14 +34,21 @@ export default function Login(props) {
 
   const navigate = useNavigate();
 
-  const loginRoute = (accountType) => {
-    console.log(accountType);
-    if (accountType === "User") {
+  const loginRoute = (data) => {
+    console.log("id", data.ownerId);
+    if (data.accountType === "User") {
       localStorage.setItem("type", JSON.stringify({ type: "user" }));
       navigate("/userpanel");
-    } else if (accountType === "Admin") {
+    } else if (data.accountType === "Admin") {
       localStorage.setItem("type", JSON.stringify({ type: "admin" }));
       navigate("/adminpanel");
+    } else if (data.accountType === "Owner") {
+      localStorage.setItem(
+        "ownerId",
+        JSON.stringify({ ownerId: data.ownerId })
+      );
+      localStorage.setItem("type", JSON.stringify({ type: "owner" }));
+      navigate("/ownerpanel");
     }
   };
 
@@ -58,11 +65,14 @@ export default function Login(props) {
 
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem("user", JSON.stringify({ email }));
-        console.log(data);
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ username: data.username })
+        );
+        console.log("data is", data);
         setEmail("");
         setPassword("");
-        loginRoute(data.accountType);
+        loginRoute(data);
       } else {
         setError(data.error);
         if (data.error === "Incorrect Password") {
@@ -156,12 +166,9 @@ export default function Login(props) {
                       Login
                     </MDBBtn>
                   </form>
-                  <a className="small text-muted" href="#!">
-                    Forgot password?
-                  </a>
                   <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                     Don't have an account?{" "}
-                    <a href="#!" style={{ color: "#393f81" }}>
+                    <a href="/signup" style={{ color: "#393f81" }}>
                       Register here
                     </a>
                   </p>

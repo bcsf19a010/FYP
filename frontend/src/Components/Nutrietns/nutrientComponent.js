@@ -32,12 +32,12 @@ export default function Nutrients() {
     try {
       // Make an API call to delete the data
       console.log("id", event.target.id);
-      await axios.delete(`/admin/deleteExercise/${event.target.id}`);
+      await axios.delete(`/admin/deleteNutrient/${event.target.id}`);
       // Perform any additional actions or update the state as needed
       setIsDeleting(true);
       setMessage("Data deleted successfully!");
       // Fetch the updated data from the API
-      const response = await fetch("/admin/getExercises");
+      const response = await fetch("/admin/getNutrients");
       const jsonData = await response.json();
       setData(jsonData); // Update state with the fetched data
     } catch (error) {
@@ -52,7 +52,7 @@ export default function Nutrients() {
   };
 
   return (
-    <div className="Exercise">
+    <div>
       <p style={{ textAlign: "center" }}>{message}</p>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <a href="/addNutrient">
@@ -131,7 +131,6 @@ export default function Nutrients() {
                   onClick={handleDelete}
                   disabled={isDeleting}
                 >
-                  {/* {isDeleting ? 'Deleting...' : 'Delete'} */}
                   Delete
                 </MDBBtn>
               </td>

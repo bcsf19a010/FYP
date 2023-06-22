@@ -25,6 +25,14 @@ import AddExercise from "./Components/Exercise/AddExercise";
 import CalNutrient from "./Components/Nutrietns/CalNutrient";
 import EbookComponent from "./Components/Ebooks/viewEbooks";
 import AddEbook from "./Components/Ebooks/AddEbook";
+import AddGym from "./Components/Gym/AddGym";
+import OwnerPanel from "./Components/OwnerPanel/OwnerPanel";
+import ViewOwner from "./Components/Owner/viewOwner";
+import ViewTrainer from "./Components/Trainer/ViewTrainer";
+import AddTrainer from "./Components/Trainer/AddTrainer";
+import ViewUser from "./Components/User/ViewUser";
+import AddUser from "./Components/User/AddUser";
+
 function App() {
   const [bgclr, setbgclr] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -92,6 +100,7 @@ function App() {
             path="/addexercise"
             element={[<Navbar />, <AddExercise />, <Footer />]}
           />
+
           <Route
             path="/calNutrient"
             element={[<Navbar />, <CalNutrient />, <Footer />]}
@@ -124,6 +133,34 @@ function App() {
               <AddNutrients setbgclr={setbgclr} />,
               <Footer />,
             ]}
+          />
+          <Route
+            path="/addGym"
+            element={[<Navbar />, <AddGym setbgclr={setbgclr} />, <Footer />]}
+          />
+          <Route
+            path="/ownerpanel"
+            element={[<Navbar />, <OwnerPanel />, <Footer />]}
+          />
+          <Route
+            path="/viewOwners"
+            element={[<Navbar />, <ViewOwner />, <Footer />]}
+          />
+          <Route
+            path="/viewTrainers"
+            element={[<Navbar />, <ViewTrainer />, <Footer />]}
+          />
+          <Route
+            path="/addTrainer"
+            element={[<Navbar />, <AddTrainer />, <Footer />]}
+          />
+          <Route
+            path="/viewUser"
+            element={[<Navbar />, <ViewUser />, <Footer />]}
+          />
+          <Route
+            path="/addUser"
+            element={[<Navbar />, <AddUser />, <Footer />]}
           />
         </Routes>
       </BrowserRouter>

@@ -45,6 +45,7 @@ router.post("/", async (req, resp) => {
           username: ownerResponse.data.username,
           token: ownerResponse.data.token,
           accountType: "Owner",
+          ownerId: ownerResponse.data.ownerId,
         });
       } else {
         resp.status(400).json({ error: ownerResponse.data.error });

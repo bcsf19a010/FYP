@@ -13,6 +13,7 @@ export default function DisplayExercises() {
       const data = await fetch(`/user/getExercise/${bodyPart}`);
       const allWorkouts = await data.json();
       if (data.ok) {
+        console.log("exercises are", allWorkouts.exercises);
         setExcercises(allWorkouts.exercises);
       }
     };
@@ -21,10 +22,10 @@ export default function DisplayExercises() {
 
   return (
     <>
-      {exercises.length > 1 ? (
+      {exercises.length >= 1 ? (
         <div>
           {exercises?.map((ex) => {
-            return <VideoPlayer exercise={ex} />;
+            return <VideoPlayer key={ex._id} exercise={ex} />;
           })}
         </div>
       ) : (

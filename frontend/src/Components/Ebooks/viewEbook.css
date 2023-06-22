@@ -1,0 +1,50 @@
+.pdf-files-container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+  
+  .pdf-files-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .pdf-files-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pdf-files-container li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .pdf-files-container p {
+    margin-bottom: 10px;
+  }
+  
+  .pdf-files-container button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .pdf-files-container button:hover {
+    background-color: #45a049;
+  }
+  
+  .pdf-files-container embed {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  

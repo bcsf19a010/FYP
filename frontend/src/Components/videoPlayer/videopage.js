@@ -5,7 +5,7 @@ function VideoPlayer(props) {
   return (
     <div className="videoContainer">
       <h2 style={{ margin: "25px", color: "Black" }}>{props.exercise.name}</h2>
-      <video className="videoEdit" autoPlay muted loop>
+      <video className="videoEdit" autoPlay muted loop preload="auto">
         <source
           src={`videos/${props.exercise.bodyPart}/${props.exercise.exReferece} `}
           type="video/mp4"

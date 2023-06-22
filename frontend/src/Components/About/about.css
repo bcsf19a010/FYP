@@ -29,6 +29,8 @@
   height:45vh;
   width:80vh;
   margin:0px;
+  font-size: 100px !important;
+  font-weight: 600 !important;
 }
 .set-bg
 {
