@@ -14,7 +14,7 @@ import Home from "./Components/Home/Home";
 import UserPanel from "./Components/UserPanel/UserPanel";
 import AdminPanel from "./Components/AdminPanel/adminPanel";
 import Ebooks from "./Components/Ebooks/EbookComponent";
-import AddNutrients from "./Components/Nutrietns/addNutrient";
+import AddNutrients from "./Components/Nutrietns/AddNutrient";
 import "./app.css";
 import { useEffect } from "react";
 import DisplayExercises from "./Components/DisplayExercises";
