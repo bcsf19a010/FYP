@@ -23,7 +23,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "server": "set NODE_ENV=production && nodemon app.js"
+    "server": "set NODE_ENV=production && nodemon app.js",
+    "build":"npm install && npm run build --prefix ../frontend"
   },
   "author": "",
   "license": "ISC",
