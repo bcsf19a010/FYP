@@ -8,6 +8,9 @@ const adminRoutes = require("./Controllers/AdminController");
 const loginRoutes = require("./Controllers/loginRoutes");
 const DbConnection = require("./mongoose");
 
+const path = require("path");
+const ___dirname = path.resolve(path.dirname(""));
+
 DbConnection();
 
 const app = express();
@@ -25,6 +28,13 @@ app.use(
 );
 
 app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(___dirname + "/../frontend/build"));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(___dirname, "../frontend", "build", "index.html"))
+  );
+}
 
 // app.use(routes)
 app.use("/owner", ownerRoutes);

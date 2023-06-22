@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9f5a8d0e.css",
+    "main.js": "/static/js/main.a0fc576d.js",
+    "static/media/AdminPanel-bg.jpg": "/static/media/AdminPanel-bg.ff647468d93b632652cb.jpg",
+    "static/media/aboutUs2.jpg": "/static/media/aboutUs2.5ba788ad84c83f6a949f.jpg",
+    "static/media/userPanel-bg.jpg": "/static/media/userPanel-bg.800e483eb8aa44cbb93f.jpg",
+    "static/media/ownerPanel-bg.jpg": "/static/media/ownerPanel-bg.5a075b600b8f8c10347e.jpg",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/hero-1.jpg": "/static/media/hero-1.6a119af11596fc0d0483.jpg",
+    "static/media/aboutUs.jpg": "/static/media/aboutUs.803cf02b160480f2bd87.jpg",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/signup-img.jpg": "/static/media/signup-img.cf812fbd4ff4b9bb4eb1.jpg",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "index.html": "/index.html",
+    "main.9f5a8d0e.css.map": "/static/css/main.9f5a8d0e.css.map",
+    "main.a0fc576d.js.map": "/static/js/main.a0fc576d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f5a8d0e.css",
+    "static/js/main.a0fc576d.js"
+  ]
+}
